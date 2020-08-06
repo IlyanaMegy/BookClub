@@ -9,10 +9,10 @@ Equipe de choc:
 Le but de ce site est de permettre à un utilisateur de répertorier des livres qu'il lit, a lu ou prévoit de lire dans une bibliothèque en ligne.
 Il pourra rechercher sur notre site un livre en tapant son titre, son auteur ou son genre et l'ajouter dans sa bibliothèque.
 
-L'utilisateur a la possibilité de noter et d'ajouter un commentaire pertinant à l’œuvre et en faire profiter à la communauté du site.
+L'utilisateur a la possibilité de noter et d'ajouter un commentaire pertinent à l’œuvre et en faire profiter à la communauté du site.
 En fonction des livres enregistrés dans la bibliothèque de l'utilisateur, un algorithme pourra lui suggérer des livres qui lui correspondent, se basant sur le genre prisé par le lecteur ou par les autres œuvres d'un auteur apprécié. 
 
-L'utilisateur peut également contribuer au développement de la bibliothèque du site internet en nous proposant des œuvres non répertoriées en nous envoyant un message que nous traiterons. Après un certain nombre de contributions, l'utilisateur pourra obtenir un rang d'administrateur (Super-Membre).De même pour les commentaires pertinants sur les œuvres.
+L'utilisateur peut également contribuer au développement de la bibliothèque du site internet en nous proposant des œuvres non répertoriées en nous envoyant un message que nous traiterons. Après un certain nombre de contributions, l'utilisateur pourra obtenir un rang d'administrateur (Super-Membre).De même pour les commentaires pertinents sur les œuvres.
 
   
 Le site se composerait de 7 pages: 

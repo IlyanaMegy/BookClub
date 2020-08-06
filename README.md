@@ -33,7 +33,7 @@ Aller sur la page phpmyadmin
 
 Clique sur "Importer"
 
-Choisir le fichier bookclub.sql
+Choisir le fichier 127_0_0_1.sql
 
 Ouvrir une nouvelle page et saisir :
 http://localhost:8080/TP/Projet_Web/html/index.html
@@ -46,34 +46,21 @@ c'est a dire que root peut se connecter sur le même formulaire de connexion qu'
 ## Identifiants:
 
 - ROOT :
-Pseudo = vinny
-mdp = dbz
+Pseudo = 
+mdp = 
 
 - Membres:
-Pseudo = jean
-mdp = jean
+Pseudo = 
+mdp = 
 
-Pseudo = Morgan
-mdp = alcool
+Pseudo = 
+mdp = 
 
-Pseudo = milou
-mdp = milou
+Pseudo = 
+mdp = 
 
-Pseudo = lisa
-mdp = lisa
-
-
-## Base de donnée
-
-La base de donnée se présente sous la forme ci-dessous:
-
-![](./images/bdd.png)
-
-C'est avec cette structure que le site "Bookclub peut fonctionner.
-
-## Technologies utilisées
-
-Les technologies utilisées lors de ce projet se limitent au 4 langages du web: HTML, CSS, JAVASCRIPT et PHP. Quelques logiciels ou applications tel XAMPP ou GIT, pour ne citer que ceux-ci, nous on respectivement aidé à simuler le fonctionnement du site en local (sans serveur externe) et partager notre travail au sein du groupe sur un dépot attribué.
+Pseudo = 
+mdp = 
 
 ## Tâches non fini:
 

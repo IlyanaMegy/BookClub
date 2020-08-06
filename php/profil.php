@@ -16,7 +16,7 @@ include_once('bdd.php');
         $age = $membres['age'];
         $date = $membres['date_creation'];
         $photo = $membres['photo'];
-        $bio = $membres['bio'];
+        //$bio = $membres['bio'];
     }
     $query2 = $pdo->prepare("SELECT * FROM root WHERE pseudo_root='" . $_SESSION['pseudo'] . "'");
     $query2->execute();
@@ -29,7 +29,7 @@ include_once('bdd.php');
         $sexe_root = $membres['sex'];
         $age_root = $membres['age'];
         $photo_root = $membres['photo'];
-        $bio_root = $membres['bio'];
+        //$bio_root = $membres['bio'];
     }
     
 ?>
@@ -69,7 +69,7 @@ include_once('bdd.php');
                     <!-- php ici si utilisateur connecté alors redirection vers page profil.php sinon redirection vers page index.html -->
                     <?php if (isset($_SESSION['IS_CONNECTED'])) {?>
                     <li class="nav-item">
-                        <a class="nav-link disabled link_disable" href="profil.php">| Profil</a>
+                        <a class="nav-link link_enable" href="profil.php">| Profil</a>
                     </li> 
                     <?php }?>  
                     
@@ -108,18 +108,16 @@ include_once('bdd.php');
                     <div class="col-md-3 col-lg-3 col-xl-3">
                         <div class="col-md-12" style="background-color:rgba(149, 91, 49, 0.06);padding-top:30px;padding-bottom:30px;"> 
                             <div class="pic_parent" style="margin-top:2px;">
-                            <?php if (isset($_SESSION['IS_CONNECTED'])) {
-                                    if ($_SESSION['table']  == 'membres') { ?>
-                                <img class='profil_pic' src="<?php echo $membres['photo']; ?>"/>
-                                <?php }
-                                       }
-                                ?>
-                                <?php if (isset($_SESSION['IS_CONNECTED'])) {
-                                    if ($_SESSION['table']  == 'root') { ?>
+                                <img class='profil_pic' src="<?php echo $photo; ?>"/>
                                 <img class='profil_pic' src="<?php echo $photo_root; ?>"/>
+
+                            <?php if (isset($_SESSION['IS_CONNECTED'])) {
+                                    if ($_SESSION['table']  == 'root') { ?>
+                                        
                                 <?php }
-                                       }
+                                    }
                                 ?>
+
                                 <button class='profil_pic edit_pic_button' onclick="showDiv()"></button>                                                      
                             </div>
 
