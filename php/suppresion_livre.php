@@ -15,7 +15,7 @@ $query1=$pdo->prepare($sql);
 $query1->execute();
 
 if ($_SESSION['table']  == 'root') {
-    header('Location: http://localhost:8080/TP/Projet_Web/php/moderation_livres.php');
+    header('Location: http://localhost:8080/TP/Bookclub/php/moderation_livres.php');
     exit;
 }
 ?>

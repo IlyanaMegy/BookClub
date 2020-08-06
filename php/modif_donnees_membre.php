@@ -24,6 +24,6 @@
 
     }
     $_SESSION['pseudo'] = $pseudo;
-    header('Location:http://localhost:8080/TP/Projet_Web//php/profil.php');
+    header('Location:http://localhost:8080/TP/Bookclub//php/profil.php');
     exit;
 ?>

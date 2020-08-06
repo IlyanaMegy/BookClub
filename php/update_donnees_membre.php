@@ -8,6 +8,6 @@
     $query1->execute();
 
 
-    header('Location:http://localhost:8080/TP/Projet_Web/php/moderation_membres.php');
+    header('Location:http://localhost:8080/TP/Bookclub/php/moderation_membres.php');
     exit;
 ?>

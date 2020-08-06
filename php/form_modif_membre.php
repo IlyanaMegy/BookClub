@@ -30,7 +30,7 @@
             <div class="container" style="padding:10%;padding-top:2%;background-color:white;">
                 <a href="../php/home.php"><img class='logo' style="padding-left:33%;" src="../logo/logo_lighter.png" alt="BookClub logo"/></a>
 
-                <button class="bouton_retour" onclick="window.location.href = 'http://localhost:8080/TP/Projet_Web/php/moderation_membres.php';">Retour</button>
+                <button class="bouton_retour" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/moderation_membres.php';">Retour</button>
 
                 <h2 class="subtitle">- Espace Administrateurs -</h2>
                 

@@ -24,7 +24,7 @@ session_start();
 
       <a href="../php/home.php"><img class='logo' style="padding-left:37%;" src="../logo/logo_lighter.png" alt="BookClub logo"/></a>
 
-      <button class="bouton_retour" onclick="window.location.href = 'http://localhost:8080/TP/Projet_Web/php/home.php';">Retour</button>
+      <button class="bouton_retour" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/home.php';">Retour</button>
 
       <h1 class="title_page2">Modération des utilisateurs</h1>
       

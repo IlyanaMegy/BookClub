@@ -20,6 +20,6 @@
     $query1->bindParam(":date_parrution", $date_parrution);
     $query1->bindParam(":note", $note, PDO::PARAM_INT);
     $query1->execute();
-    header('Location:http://localhost:8080/TP/Projet_Web/php/form_ajout_livres.php');
+    header('Location:http://localhost:8080/TP/BookClub/php/form_ajout_livres.php');
     exit;
 ?>

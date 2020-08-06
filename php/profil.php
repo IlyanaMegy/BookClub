@@ -16,7 +16,7 @@ include_once('bdd.php');
         $age = $membres['age'];
         $date = $membres['date_creation'];
         $photo = $membres['photo'];
-        //$bio = $membres['bio'];
+        $bio = $membres['bio'];
     }
     $query2 = $pdo->prepare("SELECT * FROM root WHERE pseudo_root='" . $_SESSION['pseudo'] . "'");
     $query2->execute();
@@ -29,7 +29,7 @@ include_once('bdd.php');
         $sexe_root = $membres['sex'];
         $age_root = $membres['age'];
         $photo_root = $membres['photo'];
-        //$bio_root = $membres['bio'];
+        $bio_root = $membres['bio'];
     }
     
 ?>
@@ -196,7 +196,7 @@ include_once('bdd.php');
                                     <button class="bouton_style deconnexion" type="submit">Deconnexion</button>
                                 </form>
 
-                                <button class="bouton_style edit_profil" name="edit_profil" style="float:right;" onclick="window.location.href = 'http://localhost:8080/TP/Projet_Web/php/modification_membre.php';">Compte</button>
+                                <button class="bouton_style edit_profil" name="edit_profil" style="float:right;" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/modification_membre.php';">Compte</button>
                             </div>
 
                             
