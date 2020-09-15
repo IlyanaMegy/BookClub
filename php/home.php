@@ -44,79 +44,68 @@ include_once('bdd.php');
                <a href="../html/index.html"><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
             </div>
 
-            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2 col-xl-2"></div>
+            <div class="col-xs-0 col-sm-0 col-md-0 col-lg-1 col-xl-1"></div>
 
-            <div class="col-xs-11 col-sm-11 col-md-10 col-lg-9 col-xl-9 navbar-collapse" id="navbar_div">
+            <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 navbar-collapse" id="navbar_div">
             <!-- liens, celui de la page actuelle est désactivé -->
                <ul class="navbar-nav">
                   <li class="nav-item">
-                     <a class="nav-link disabled link_disable" href="../php/home.php">| Accueil</a>
+                     <a class="nav-link disabled link_disable" href="../php/home.php">Accueil</a>
                   </li>
 
                   <li class="nav-item">
-                     <a class="nav-link link_enable" href="../html/about_us.html">| A propos</a>
+                     <a class="nav-link link_enable" href="../html/about_us.html">BookClub</a>
                   </li>
 
                   <li class="nav-item">
-                     <a class="nav-link link_enable" href="../html/community.html">| Communauté</a>
+                     <a class="nav-link link_enable" href="../html/community.html">Communauté</a>
                   </li>
 
                   <!-- php ici si utilisateur connecté alors redirection vers page profil.php sinon redirection vers page index.html -->
                   <?php if (isset($_SESSION['IS_CONNECTED'])) {?>
                   <li class="nav-item">
-                     <a class="nav-link link_enable" href="profil.php">| Profil</a>
+                     <a class="nav-link link_enable" href="profil.php">Profil</a>
                   </li> 
                   <?php }?>  
                   
                   <li class="nav-item">
-                     <a class="nav-link link_enable" href="../html/form_recherche.html">| Rechercher un livre</a>         
+                     <a class="nav-link link_enable" href="../html/form_recherche.html">Rechercher un livre</a>         
                   </li>
                   
                   <li class="nav-item">
-                     <a class="nav-link link_enable" href="../html/message.html">| Messages</a>            
+                     <a class="nav-link link_enable" href="../html/message.html">Messages</a>            
                   </li>    
                   
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" style="color:#d5d54b;padding-left:40%;padding-top:10%;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../icons/admin.png" style="height:25px;width:25px;" alt="admin settings">
-                     </a>
-                     <div class="dropdown-menu drop_style" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item drop_style" href="#">Action</a>
-                        <a class="dropdown-item drop_style" href="#">Another action</a>
-                        <a class="dropdown-item drop_style" href="#">Something else here</a>
-                     </div>
-                  </li>
+                  <?php 
+                     if (isset($_SESSION['IS_CONNECTED'])) {
+                        if ($_SESSION['table']  == 'root') {
+                              
+                  ?>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style="color:#d5d54b;padding-left:40%;padding-top:10%;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <img src="../icons/admin.png" style="height:25px;width:25px;" alt="admin settings">
+                        </a>
+                        <div class="dropdown-menu drop_style" aria-labelledby="navbarDropdownMenuLink">
+                           <a class="dropdown-item drop_style" href="./moderation_livres.php">Moderation livres</a>
+                           <a class="dropdown-item drop_style" href="./moderation_membres.php">Moderation membres</a>
+                           <a class="dropdown-item drop_style" href="./form_ajout_livres.php">Ajout de livres</a>
+                        </div>
+                     </li>
+                  <?php    
+                        }
+                     }
+                  ?>                  
                </ul>
             </div>
          </nav>
 
          <!-- Message de bienvenue -->
-         <div class="message_box">
+         <div class="container message_box">
            <p class="welcome">Bienvenue sur BookClub</p>
            <p class="text">Répertoriez vos livres préférés
            <br>Et partagez votre avis.</p>  
          </div>
       </div>
-
-
-      <?php /*Liens de moderation[en cours]
-               Probleme :
-               mise en page
-               suppresion d'une colonne dans la bdd
-               */ ?>
-         <?php if (isset($_SESSION['IS_CONNECTED'])) {
-               if ($_SESSION['table']  == 'root') {
-                     
-         ?>
-         <div id="admliens">
-            <a href="./moderation_livres.php"><button>Moderation livres</button></a>
-            <a href="./moderation_membres.php"><button>Moderation membres</button></a>
-            <a href="./form_ajout_livres.php"><button>Ajout de livres</button></a>
-         </div>
-         <?php }
-               }
-      ?>
-
 
       <!-- le container de la page avec tous les éléments de la page -->
       <div class="container content_box_home">
@@ -339,7 +328,7 @@ include_once('bdd.php');
                            </div>
                         </div>
                         <div class="col-9">
-                           <a style="font-size:small;" class="footer_text" href="mailto:axel.boudeau@ynov.com"> axel.boudeau@ynov.com </a>
+                           <a style="font-size:small;" class="footer_text" href="mailto:ilyana.megy@ynov.com"> ilyana.megy@ynov.com </a>
                         </div>
                      </div>
                   </li>
