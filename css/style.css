@@ -63,6 +63,15 @@ body, html {
   color: rgb(128, 134, 90);
 }
 
+.drop_style{
+  background-color:transparent;
+  color:#d5d54b;
+}
+.drop_style:hover{
+  background-color: transparent;
+  color:#646406;
+}
+
 .valider_bouton{
   margin-top: 3px;
   margin-left: 1%;

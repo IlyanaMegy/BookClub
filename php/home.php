@@ -41,7 +41,7 @@ include_once('bdd.php');
          <nav class="navbar fixed_top navbar-expand-sm justify-content-between">
             <!-- Logo en haut à gauche -->
             <div class="col-xs-1xs col-sm-1 col-md-1 col-lg-1 col-xl-1">
-               <a href=""><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
+               <a href="../html/index.html"><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
             </div>
 
             <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2 col-xl-2"></div>
@@ -74,7 +74,18 @@ include_once('bdd.php');
                   
                   <li class="nav-item">
                      <a class="nav-link link_enable" href="../html/message.html">| Messages</a>            
-                  </li>               
+                  </li>    
+                  
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" style="color:#d5d54b;padding-left:40%;padding-top:10%;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../icons/admin.png" style="height:25px;width:25px;" alt="admin settings">
+                     </a>
+                     <div class="dropdown-menu drop_style" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item drop_style" href="#">Action</a>
+                        <a class="dropdown-item drop_style" href="#">Another action</a>
+                        <a class="dropdown-item drop_style" href="#">Something else here</a>
+                     </div>
+                  </li>
                </ul>
             </div>
          </nav>
