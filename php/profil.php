@@ -31,7 +31,6 @@ include_once('bdd.php');
         $photo_root = $membres['photo'];
         $bio_root = $membres['bio'];
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -409,9 +408,11 @@ include_once('bdd.php');
                                     </div>
                                     </div>
 
-                                    <div class="col-9 footer_text" style="font-size:medium;text-align:left;padding-left:5%;">
-                                    axel.boudeau@ynov.com
-                                    </div>
+                                    <a class="footer_text" href="mailto:axel.boudeau@ynov.com">
+                                        <div class="col-9" style="font-size:medium;text-align:left;padding-left:5%;">axel.boudeau@ynov.com
+                                        </div>
+                                    </a>
+                                    
                                 </div>
                             </li>
 
