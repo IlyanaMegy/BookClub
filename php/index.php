@@ -16,7 +16,7 @@
 
          <button class="visiteur_bouton" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/home.php';">Visiteur de passage</button>
          <button class="inscription_bouton" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/inscription.php';">Nouveau membre</button>
-         <button class="connexion_bouton" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/html/connexion.html';">Un connaisseur</button>
+         <button class="connexion_bouton" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/connexion.php';">Un connaisseur</button>
       </div>
    </body>
 </html>

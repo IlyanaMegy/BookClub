@@ -1,21 +1,19 @@
 <?php 
-include_once('bdd.php');
-session_start();
+    include_once('bdd.php');
+    session_start();
 
-
-if(empty($_POST)) {
+    if(empty($_POST)) {
         echo "Pas de saisie correct veillez remplir tout les champs. <a href=\"./moderation_offres.php\">Réesayer</a>";
-        }
+    }
 
+    $titre = htmlspecialchars($_POST['titre']);
 
-$titre = htmlspecialchars($_POST['titre']);
+    $sql = "DELETE FROM livres WHERE titre = \"$titre\"";
+    $query1=$pdo->prepare($sql);
+    $query1->execute();
 
-$sql = "DELETE FROM livres WHERE titre = \"$titre\"";
-$query1=$pdo->prepare($sql);
-$query1->execute();
-
-if ($_SESSION['table']  == 'root') {
-    header('Location: http://localhost:8080/TP/Bookclub/php/moderation_livres.php');
-    exit;
-}
+    if ($_SESSION['table']  == 'root') {
+        header('Location: http://localhost:8080/TP/Bookclub/php/moderation_livres.php');
+        exit;
+    }
 ?>

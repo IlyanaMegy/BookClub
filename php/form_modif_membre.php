@@ -28,7 +28,7 @@
     <body class="container-fluid windows">
         <div class="container content" style="width:800px;border:none;padding:5%;margin-top:20px;background-color:rgba(206, 192, 51, 0.44);">
             <div class="container" style="padding:10%;padding-top:2%;background-color:white;">
-                <a href="../php/home.php"><img class='logo' style="padding-left:33%;" src="../logo/logo_lighter.png" alt="BookClub logo"/></a>
+                <a href="home.php"><img class='logo' style="padding-left:33%;" src="../logo/logo_lighter.png" alt="BookClub logo"/></a>
 
                 <button class="bouton_retour" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/moderation_membres.php';">Retour</button>
 

@@ -11,7 +11,7 @@
 
    <body class="container-fluid windows">
       <div class="container content" style="margin-top:2px;">
-         <a href="../html/index.html"><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
+         <a href="../php/index.php"><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
                
          <div class="title_page">Inscrivez-vous</div>
          
@@ -64,7 +64,7 @@
             </div>
 
             <div class=div_buttons>
-               <input class="inscription_boutons" type="button" name="home" value="Retour" onclick="self.location.href='../html/index.html'">
+               <input class="inscription_boutons" type="button" name="home" value="Retour" onclick="self.location.href='../php/index.php'">
                <input class="inscription_boutons" type="submit" name="inscription_membre"/>
             </div>
          </form>

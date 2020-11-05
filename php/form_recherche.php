@@ -12,11 +12,11 @@
    <body class="container-fluid windows">
       <div class="container content">
 
-         <a href="../php/home.php"><img class='logo' style="padding-left:30%;"src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
+         <a href="home.php"><img class='logo' style="padding-left:30%;"src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
                
          <div class="title_page">Rechercher un livre</div>
          
-         <form method="POST" action="../php/research.php">
+         <form method="POST" action="research.php">
             <div class="row">
                <div class="col-6">
                   <label for="titre" style="padding-left:3%;" class="input_inscription">
@@ -66,7 +66,7 @@
             </div>
 
             <div class=div_buttons>
-               <input class="inscription_boutons" type="button" name="home" value="Retour" onclick="self.location.href='../php/home.php'">
+               <input class="inscription_boutons" type="button" name="home" value="Retour" onclick="self.location.href='home.php'">
                <input class="inscription_boutons" type="submit" name="recherche_livres"/>
             </div>
          </form>

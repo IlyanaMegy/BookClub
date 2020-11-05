@@ -55,18 +55,19 @@ session_start();
           </form>
         </div>
       </div>
+      
       <tr>
       <table>
        <th>Pseudo</th>
        <th>Rôle</th>
-     </tr>
-     <tbody>
-     <?php foreach ($liste as $donnees) { ?>
-       <td><?php echo $donnees['pseudo_membre']; ?></td>
-       <td><?php echo $donnees['role']; ?></td>
-       </tr>
-     <?php }?>
-     </tbody>
+      </tr>
+      <tbody>
+        <?php foreach ($liste as $donnees) { ?>
+          <td><?php echo $donnees['pseudo_membre']; ?></td>
+          <td><?php echo $donnees['role']; ?></td>
+          </tr>
+        <?php }?>
+      </tbody>
      </table>
      </div>
   </body>

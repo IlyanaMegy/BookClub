@@ -4,7 +4,7 @@ include_once('bdd.php');
       
 
     if(empty($_POST['pseudo']) OR empty($_POST['mail']) OR empty($_POST['mdp']) OR empty($_POST['pays']) OR empty($_POST['age'])) {
-        echo "Pas de saisie correct veillez remplir tout les champs. <a href=\"../html/index.html\">Réesayer</a>";
+        echo "Pas de saisie correct veillez remplir tout les champs. <a href=\"index.php\">Réesayer</a>";
     } else {
         if(isset($_POST['inscription_membre'])) {
             $_SESSION['pseudo'] = htmlspecialchars($_POST['pseudo']);
@@ -28,7 +28,7 @@ include_once('bdd.php');
             $query1->bindParam(":role", $role);
             $query1->bindParam(":date_creation", $date_creation);
             $query1->execute();
-            header('Location: http://localhost:8080/TP/Bookclub/html/index.html');
+            header('Location: http://localhost:8080/TP/Bookclub/php/index.php');
             exit;
 
     }

@@ -1,6 +1,7 @@
 <?php
     include_once('bdd.php');
     session_start();
+    
     $ancien_titre = $_SESSION['titre'];
     $titre = $_POST['titre'];
     $auteur = htmlspecialchars($_POST['auteur']);

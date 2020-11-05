@@ -24,7 +24,7 @@ session_start();
   <body class="container-fluid windows">
     <div class="container content" style="width:800px;border:none;">
 
-      <a href="../php/home.php"><img class='logo' style="padding-left:37%;" src="../logo/logo_lighter.png" alt="BookClub logo"/></a>
+      <a href="home.php"><img class='logo' style="padding-left:37%;" src="../logo/logo_lighter.png" alt="BookClub logo"/></a>
 
       <button class="bouton_retour" onclick="window.location.href = 'http://localhost:8080/TP/Bookclub/php/home.php';">Retour</button>
 
@@ -70,7 +70,7 @@ session_start();
               <div class="col-md-5 col-lg-5 col-xl-5">
                 <label class="input_form">                  
                   <div>Date de parution</div>
-                  <input type="text" name="date" required/> 
+                  <input type="text" name="date_parrution" required/> 
                 </label>
               </div>                 
             
@@ -85,7 +85,7 @@ session_start();
             </div>
           </div>
 
-          <div style="margin-left:5%;margin-bottom:20px;">
+          <div style="margin-left:5%;margin-bottom:20px;"> 
             <div class="row" style="padding-top:5%;">
               <div class="col-md-1 col-lg-1 col-xl-1"></div>
 

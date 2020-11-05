@@ -1,6 +1,6 @@
 <?php
-include_once('bdd.php');
-session_start();
+  include_once('bdd.php');
+  session_start();
   $query1 = $pdo->prepare('SELECT * FROM livres');
   $query1->execute();
   $liste = $query1->fetchAll(); 

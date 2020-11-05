@@ -1,49 +1,35 @@
-<?php 
-include_once('bdd.php');
-session_start();
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>BookClub - Connexion</title>
 
+    <!-- fichiers css dans un dossier css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style_starter.css">
 
-if (empty(htmlspecialchars($_POST['pseudo'])) OR empty(htmlspecialchars($_POST['mdp']))) { 
-    echo "Pas de saisie d'identifiant. <a href=\"../html/connexion.html\">Réesayer</a>";
-} else {
-    $_SESSION['pseudo'] = htmlspecialchars($_POST['pseudo']);
-    $query1 = $pdo->prepare('SELECT * FROM root');
-        $query1->execute();
-        $liste_pseudo = $query1->fetchAll();
-        foreach ($liste_pseudo as $name) {
-            $pseudo_test = $name['pseudo_root'];
-            if ($_SESSION['pseudo'] == $pseudo_test) {
-                $pseudo = $pseudo_test;
-                $_SESSION['table'] = 'root';
-                $_SESSION['IS_CONNECTED'] = true;
-                }
-        }
+    <body class="container-fluid windows">
+       <div class="container content" style="margin-top:1%;">  
+            <a href="index.php"><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
+            
+            <div class="title_page">Connectez-vous</div>
 
-        $query2 = $pdo->prepare('SELECT * FROM membres');
-        $query2->execute();
-        $liste_pseudo = $query2->fetchAll();
-        foreach ($liste_pseudo as $name) {
-            $pseudo_test = $name['pseudo_membre'];
-            if ($_SESSION['pseudo'] == $pseudo_test) {
-                $pseudo = $pseudo_test;
-                $_SESSION['table'] = 'membres';
-                $_SESSION['IS_CONNECTED'] = true;
-                }
-        }
-        $query3 = $pdo->prepare('SELECT pseudo_membre, mdp_membre FROM membres WHERE pseudo_membre="' . $_POST['pseudo'] . '" AND mdp_membre="' . $_POST['mdp'] . '" ');
-        $query3->execute();
-        $data_m = $query3->fetch();
-        $query4 = $pdo->prepare('SELECT pseudo_root, mdp_root FROM root WHERE pseudo_root="' . $_POST['pseudo'] . '" AND mdp_root="' . $_POST['mdp'] . '" ');
-        $query4->execute();
-        $data_r = $query4->fetch();
-        if ($data_m OR $data_r) {
-        header('Location: http://localhost:8080/TP/Bookclub/php/home.php');
-        exit;
+            <form action="connexion_form.php" method="post">
+                <label class="input_connexion">
+                    <div>Nom utilisateur</div>
+                    <input type="text" name="pseudo" required />
+                </label>
 
-        } else {
-                header('Location: http://localhost:8080/TP/Bookclub/html/connexion.html');
-        exit;
-        }
-    }
- ?>
+                <label class="input_connexion">
+                    <div>Mot de passe</div>
+                    <input type="password" name="mdp" required />
+                </label>
+                
+                <button class="valider_bouton" style="height:50px;margin:5%;margin-left:33%;" type="submit">Valider</button>
+            </form>
 
+            <!-- renvoi vers page miss_password.php -->
+            <button class='mdp' onclick="window.location.href='miss_password.php'">Mot de passe oubli&eacute;?</button>
+        
+        </div>
+    </body>
+</html>
