@@ -19,6 +19,6 @@
    
     //$query1->bindParam(":note", $note, PDO::PARAM_INT);
     $query1->execute();
-    header('Location:http://localhost:8080/TP/BookClub/php/form_ajout_livres.php');
+    header('Location:http://localhost:8080/BookClub/php/form_ajout_livres.php');
     exit;
 ?>

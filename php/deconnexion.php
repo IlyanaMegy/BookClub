@@ -4,7 +4,6 @@
     if (isset($_SESSION['IS_CONNECTED'])) {
         session_destroy();
     }
-    header('Location: http://localhost:8080/TP/Bookclub/php/index.php');
+    header('Location: http://localhost:8080/Bookclub/php/index.php');
     exit();
 ?>
-

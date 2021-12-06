@@ -37,11 +37,11 @@ if (empty(htmlspecialchars($_POST['pseudo'])) OR empty(htmlspecialchars($_POST['
         $query4->execute();
         $data_r = $query4->fetch();
         if ($data_m OR $data_r) {
-        header('Location: http://localhost:8080/TP/BookClub/php/home.php');
+        header('Location: home.php');
         exit;
 
         } else {
-                header('Location: http://localhost:8080/TP/BookClub/php/home.php');
+                header('Location: home.php');
         exit;
         }
     }
