@@ -5,7 +5,8 @@ include_once('bdd.php');
 // Si un ou aucun champs n'est rempli on invite l'utilisateur à recommencer son incription.
 if (empty($_POST['pseudo']) or empty($_POST['mail']) or empty($_POST['mdp']) or empty($_POST['pays']) or empty($_POST['age'])) {
     echo "Pas de saisie correct veillez remplir tout les champs. <a href=\"index.php\">Réesayer</a>";
-}else{
+}
+else {
     if (isset($_POST['inscription_membre'])) {
 
         // Vérifie dans la BDD si le mail est déjà connu, si oui on invite l'utilisateur à se connecter.
@@ -13,22 +14,31 @@ if (empty($_POST['pseudo']) or empty($_POST['mail']) or empty($_POST['mdp']) or 
         $query1 = $pdo->prepare('SELECT * FROM root');
         $query1->execute();
         $liste_mail = $query1->fetchAll();
-        foreach ($liste_mail as $name) 
-        {
+        foreach ($liste_mail as $name) {
             $mail_test = $name['mail_root'];
-            if ($_SESSION['mail'] == $mail_test) {
-                echo "un compte exisite avec cet email, connectez vous plutôt <a href=\"index.php\">Réesayer</a>";
+            if ($_SESSION['mail'] == $mail_test) { ?>
+<script>
+alert("<?php echo htmlspecialchars('un compte existe avec cet email, connectez vous plutôt', ENT_QUOTES); ?>")
+</script>
+<?php
+                header("Refresh:0; url=connexion.php");
+                exit;
             }
         }
 
         $query2 = $pdo->prepare('SELECT * FROM membres');
         $query2->execute();
         $liste_mail = $query2->fetchAll();
-        foreach ($liste_mail as $name) 
-        {
+        foreach ($liste_mail as $name) {
             $mail_test = $name['mail_membre'];
             if ($_SESSION['mail'] == $mail_test) {
-                echo "un compte exisite avec cet email, connectez vous plutôt <a href=\"index.php\">Réesayer</a>";
+?>
+<script>
+alert("<?php echo htmlspecialchars('un compte existe avec cet email, connectez vous plutôt', ENT_QUOTES); ?>")
+</script>
+<?php
+                header("Refresh:0; url=connexion.php");
+                exit;
             }
         }
 
@@ -39,11 +49,15 @@ if (empty($_POST['pseudo']) or empty($_POST['mail']) or empty($_POST['mdp']) or 
         $query1 = $pdo->prepare('SELECT * FROM root');
         $query1->execute();
         $liste_pseudo = $query1->fetchAll();
-        foreach ($liste_pseudo as $name) 
-        {
+        foreach ($liste_pseudo as $name) {
             $pseudo_test = $name['pseudo_root'];
             if ($_SESSION['pseudo'] == $pseudo_test) {
-                echo "ce pseudo est déjà prix, choisis-en un autre ! <a href=\"inscription.php\">Réesayer</a>";
+?>
+<script>
+alert("<?php echo htmlspecialchars('ce pseudo est indisponible', ENT_QUOTES); ?>")
+</script>
+<?php
+                header("Refresh:0; url=inscription.php");
                 exit;
             }
         }
@@ -51,11 +65,15 @@ if (empty($_POST['pseudo']) or empty($_POST['mail']) or empty($_POST['mdp']) or 
         $query2 = $pdo->prepare('SELECT * FROM membres');
         $query2->execute();
         $liste_pseudo = $query2->fetchAll();
-        foreach ($liste_pseudo as $name) 
-        {
+        foreach ($liste_pseudo as $name) {
             $pseudo_test = $name['pseudo_membre'];
             if ($_SESSION['pseudo'] == $pseudo_test) {
-                echo "ce pseudo est déjà prix, choisis-en un autre ! <a href=\"inscription.php\">Réesayer</a>";
+?>
+<script>
+alert("<?php echo htmlspecialchars('ce pseudo est indisponible', ENT_QUOTES); ?>")
+</script>
+<?php
+                header("Refresh:0; url=inscription.php");
                 exit;
             }
         }
@@ -69,9 +87,11 @@ if (empty($_POST['pseudo']) or empty($_POST['mail']) or empty($_POST['mdp']) or 
         $role = "Membre";
         $pseudo = $_SESSION['pseudo'];
         $date_creation = DATE("Y-m-d");
-    
-    
-        $requete = "INSERT INTO bookclub.membres (pseudo_membre, mail_membre, mdp_membre, pays, sex, age, role, date_creation) VALUES (:pseudo, :mail, :mdp, :pays, :sexe, :age, :role, :date_creation)";
+
+
+        $requete = "INSERT INTO bookclub.membres (pseudo_membre, mail_membre, mdp_membre, pays, sex, age, role,
+    date_creation)
+    VALUES (:pseudo, :mail, :mdp, :pays, :sexe, :age, :role, :date_creation)";
         $query1 = $pdo->prepare($requete);
         $query1->bindParam(":pseudo", $pseudo);
         $query1->bindParam(":mail", $mail);
@@ -85,18 +105,6 @@ if (empty($_POST['pseudo']) or empty($_POST['mail']) or empty($_POST['mdp']) or 
         header('Location: http://localhost:8080/Bookclub/php/index.php');
         exit;
     }
-    
-}
-
-
-
-
-
-else {
-    echo "coucou";
-//
-//    
-// }
 }
 
 ?>
