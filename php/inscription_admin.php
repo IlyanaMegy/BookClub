@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>BookClub - Inscription</title>
+    <title>BookClub - Inscription admin</title>
     <meta charset="utf-8">
 
     <!-- fichiers css dans un dossier css -->
@@ -16,7 +16,7 @@
 
         <div class="title_page" style="margin-left:23%;">Inscrivez-vous</div>
 
-        <form style="margin-left:4%;" method="POST" action="creation_membre.php">
+        <form style="margin-left:4%;" method="POST" action="creation_root.php">
             <div class="row">
                 <div class="col-6">
                     <label for="pseudo" class="input_form">
@@ -67,7 +67,7 @@
             <div class=div_buttons>
                 <input class="inscription_boutons" type="button" name="home" value="Retour"
                     onclick="self.location.href='../php/index.php'">
-                <input class="inscription_boutons" type="submit" name="inscription_membre" />
+                <input class="inscription_boutons" type="submit" name="inscription_admin" />
             </div>
         </form>
     </div>

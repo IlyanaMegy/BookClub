@@ -12,7 +12,7 @@
 </head>
 
 <body class="container-fluid windows"></body>
-<div class="container content" style="margin-top:3%;">
+<div class="container content" style="margin-top:1%;">
     <div class="logo"><img src="../logo/logo_lighter.png" alt="BookClub logo" /></div>
 
     <button class="visiteur_bouton" onclick="window.location.href = 'home.php';">Visiteur de

@@ -1,9 +1,10 @@
 <?php
 include_once('bdd.php');
 session_start();
-  $query1 = $pdo->prepare('SELECT * FROM livres');
-  $query1->execute();
-  $liste = $query1->fetchAll(); 
+$query1 = $pdo->prepare('SELECT * FROM livres');
+$query1->execute();
+$liste = $query1->fetchAll();
+
 ?>
 
 
@@ -31,9 +32,9 @@ session_start();
         <button class="bouton_retour"
             onclick="window.location.href = 'http://localhost:8080/Bookclub/php/home.php';">Retour</button>
 
-        <h1 class="title_page2">Partagez un nouveau livre</h1>
+        <h1 class="title_page2" style="margin-left:15%;">Partagez un nouveau livre</h1>
 
-        <h2 class="subtitle">- Espace Administrateurs -</h2>
+        <h2 class=" subtitle" style="margin-left:25%;">- Espace Administrateurs -</h2>
 
         <div class="text" style="padding:5%;padding-bottom:0;">
             <p>Vous connaissez ce livre par coeur?
@@ -152,8 +153,8 @@ session_start();
                     </tr>
 
                     <?php
-            }
-            ?>
+}
+?>
 
                 </table>
             </tbody>

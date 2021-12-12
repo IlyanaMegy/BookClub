@@ -8,7 +8,7 @@
     $resume = htmlspecialchars($_POST['resume']);
     $date_parrution = htmlspecialchars($_POST['date_parrution']);
 
-    $requete = "INSERT INTO bookclub.livres (titre, auteur, genre, editeur, resume, date_parrution,) VALUES (:titre, :auteur, :genre, :editeur, :resume, :date_parrution)" ;
+    $requete = "INSERT INTO bookclub.livres (titre, auteur, genre, editeur, resume, date_parrution) VALUES (:titre, :auteur, :genre, :editeur, :resume, :date_parrution)" ;
     $query1 = $pdo->prepare($requete);
     $query1->bindParam(":titre", $titre);
     $query1->bindParam(":auteur", $auteur);
