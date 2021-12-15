@@ -307,9 +307,11 @@ $liste = $query1->fetchAll();
             Vous ne trouvez pas votre bonheur?
             Proposez-nous un livre que nous ajouterons ici !
         </h2>
-        <button>
-
-        </button>
+        <a href="form_ajout_livres.php">
+            <button class="valider_bouton" style="margin-left:40%;">
+                Ajouter un livre.
+            </button>
+        </a>
     </div>
 
     <!--footer-->
