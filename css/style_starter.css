@@ -245,3 +245,16 @@ form{
   text-align: center;
   height: 40px;
 }
+
+
+/*boite de gauche*/
+
+.edit_profil, .deconnexion{
+  margin-top: 2px;
+  margin-right: 3px;
+}
+.deconnexion:hover, .edit_profil:hover{
+  color: black;
+  cursor:pointer;
+  outline:0;
+}

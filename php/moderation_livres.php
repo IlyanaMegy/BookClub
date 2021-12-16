@@ -1,9 +1,10 @@
 <?php
-  include_once('bdd.php');
-  session_start();
-  $query1 = $pdo->prepare('SELECT * FROM livres');
-  $query1->execute();
-  $liste = $query1->fetchAll(); 
+include_once('bdd.php');
+session_start();
+$query1 = $pdo->prepare('SELECT * FROM livres');
+$query1->execute();
+$liste = $query1->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -63,25 +64,44 @@
         <table>
             <thead>
                 <tr>
-                    <th>Titre</th>
-                    <th>Auteur</th>
-                    <th>Genre</th>
-                    <th>Editeur</th>
-                    <th>Date de parrution</th>
-                    <th>Note</th>
-                </tr>
-                <tr>
                     <?php foreach ($liste as $donnees) { ?>
-                    <td><?php echo $donnees['titre']; ?></td>
-                    <td><?php echo $donnees['auteur']; ?></td>
-                    <td><?php echo $donnees['genre']; ?></td>
-                    <td><?php echo $donnees['editeur']; ?></td>
-                    <td><?php echo $donnees['date_parrution']; ?></td>
-                    <td><?php echo $donnees['note']; ?></td>
+                    <form action="form_modif_livre.php" style="padding-left:7%;" method="post">
+                        <td>
+                            <input type="text" name="titre" style="display:none;" value="
+                                <?php echo $donnees['titre']; ?>" />
+                            <?php echo $donnees['titre']; ?>
+
+                        </td>
+                        <td>
+                            <input type="text" name="auteur" style="display:none;" value="
+                                <?php echo $donnees['auteur']; ?>" />
+                            <?php echo $donnees['auteur']; ?>
+                        </td>
+                        <td>
+                            <input type="text" name="editeur" style="display:none;" value="
+                                <?php echo $donnees['editeur']; ?>" />
+                            <?php echo $donnees['editeur']; ?>
+                        </td>
+                        <td>
+                            <input type="text" name="date_parrution" style="display:none;" value="
+                                <?php echo $donnees['date_parrution']; ?>" />
+                            <?php echo $donnees['date_parrution']; ?>
+                        </td>
+                        <input type="text" name="resume" style="display:none;"
+                            value="<?php echo $donnees['resume']; ?>" />
+                        <input type="text" name="genre" style="display:none;" value="
+                                <?php echo $donnees['genre']; ?>" />
+                        <input type="text" name="photo" style="display:none;" value="
+                                <?php echo $donnees['photo']; ?>" />
+                        <input type="text" name="note" style="display:none;" value="
+                                <?php echo $donnees['note']; ?>" />
+                        <td><button class="valider_bouton" type="submit" name="modif_l">Modifie-le</button></td>
+
+                    </form>
                 </tr>
                 <?php
-    }
-    ?>
+}
+?>
         </table>
     </div>
 </body>

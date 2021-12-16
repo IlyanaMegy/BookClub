@@ -43,6 +43,10 @@ function search() {
 						date_parrution.value = infoBook.publishedDate;
 						date_parrution.name = "date_parrution";
 
+						var photo = document.createElement("input");
+						photo.value = 
+						photo.name = "photo";
+
 						form.appendChild(title);
 						form.appendChild(editeur);
 						form.appendChild(auteur);
