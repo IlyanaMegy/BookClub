@@ -55,15 +55,15 @@
 
                     <div class="container" style="margin-top:5px;padding-left:11%;padding-right:25%;" name="tag_box">
                         <div name="type_tag" class="tag_style">
-                            genre<?php echo $genre?>
+                            genre <?php echo $genre?>
                         </div>
 
                         <div name="editor_tag" class="tag_style">
-                            éditeur<?php echo $editeur?>
+                            éditeur <?php echo $editeur?>
                         </div>
 
                         <div name="author_tag" class="tag_style">
-                            auteur<?php echo $auteur?>
+                            auteur <?php echo $auteur?>
                         </div>
                     </div>
 

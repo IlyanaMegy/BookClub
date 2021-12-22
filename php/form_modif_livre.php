@@ -94,18 +94,9 @@
                         <div class="col-1"></div>
                         <div class=" col-5">
                             <div class="pic_parent"
-                                style="position: relative;height:150px;width:150px;margin-bottom: 2%;border: solid 1px black;margin-left: 7%;">
+                                style="margin-top:15%;position: relative;height:150px;width:150px;margin-bottom: 2%;border: solid 1px black;margin-left: 7%;">
                                 <img style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;border: none;object-fit: cover;"
                                     src=" <?php echo $photo; ?>" />
-                            </div>
-
-                            <div id="new_pic" class="container" style="display:block;">
-                                <label for "avatar" class="input_form" style="text-align:center;"> Choisissez une photo
-                                    de profil
-                                    :</label>
-                                <input type="file" name="photo" id="file" style="color:rgb(3, 54, 4);padding:10px;"
-                                    accept="image/png, image/jpeg">
-
                             </div>
                         </div>
 

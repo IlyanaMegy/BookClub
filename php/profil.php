@@ -22,14 +22,15 @@
     $query2->execute();
     $liste_root = $query2->fetchAll();
     foreach ($liste_root as $membres) {
-        $pseudo_root = $membres['pseudo_root'];
-        $role_root = $membres['role'];
-        $mail_root = $membres['mail_root'];
-        $pays_root = $membres['pays'];
-        $sexe_root = $membres['sex'];
-        $age_root = $membres['age'];
-        $photo_root = $membres['photo'];
-        $bio_root = $membres['bio'];
+        $pseudo = $membres['pseudo_root'];
+        $role = $membres['role'];
+        $mail = $membres['mail_root'];
+        $pays = $membres['pays'];
+        $sexe = $membres['sex'];
+        $age= $membres['age'];
+        $date = $membres['date_creation'];
+        $photo = $membres['photo'];
+        $bio = $membres['bio'];
     }
 ?>
 
@@ -88,14 +89,6 @@
                         style="background-color:rgba(149, 91, 49, 0.06);padding-top:30px;padding-bottom:30px;">
                         <div class="pic_parent" style="margin-top:2px;">
                             <img class='profil_pic' src="<?php echo $photo; ?>" />
-                            <img class='profil_pic' src="<?php echo $photo_root; ?>" />
-
-                            <?php if (isset($_SESSION['IS_CONNECTED'])) {
-                                    if ($_SESSION['table']  == 'root') { ?>
-
-                            <?php }
-                                    }
-                                ?>
 
                             <button class='profil_pic edit_pic_button' onclick="showDiv()"></button>
                         </div>
@@ -112,56 +105,19 @@
                         </div>
 
                         <div class="items_box">
-                            <?php 
-                                if (isset($_SESSION['IS_CONNECTED'])) {
-                                    if ($_SESSION['table']  == 'membres') { ?>
                             <h1 class='pseudo'><?php echo $pseudo?></h1>
                             <?php echo'<img class="icon_gender" src="icons/icon_',$sexe, '.png"/>';?>
-                            <?php 
-                                }
-                               }
-                            ?>
-                            <?php 
-                                if (isset($_SESSION['IS_CONNECTED'])) {
-                                        if ($_SESSION['table']  == 'root') { ?>
-                            <h1 class='pseudo'><?php echo $pseudo_root?></h1>
-                            <?php echo'<img class="icon_gender" src="icons/icon_',$sexe_root, '.png"/>';?>
-                            <?php 
-                                }
-                               }
-                            ?>
                         </div>
 
                         <div class="three_infos">
-                            <?php if (isset($_SESSION['IS_CONNECTED'])) {
-                                        if ($_SESSION['table']  == 'membres') { ?>
                             <h3 class="three_infos_style">Statut: <?php echo $role?>
                                 </br>Membre depuis: <?php echo $date?></h3>
-                            <?php }
-                               }
-                            ?>
-                            <?php if (isset($_SESSION['IS_CONNECTED'])) {
-                                        if ($_SESSION['table']  == 'root') { ?>
-                            <h3 class="three_infos_style">Statut: <?php echo $role_root?>
-                                <?php }
-                               }
-                            ?>
                         </div>
 
                         <!-- contenu bio de l'utilisateur php -->
                         <div class="bio_box">
-                            <?php if (isset($_SESSION['IS_CONNECTED'])) {
-                                            if ($_SESSION['table']  == 'membres') { ?>
                             <h3 class="bio_title" style="text-align:center;">Votre bio</h3>
                             <?php echo $bio?>
-                            <?php }
-                                }
-                                if (isset($_SESSION['IS_CONNECTED'])) {
-                                    if ($_SESSION['table']  == 'root') { ?>
-                            <h3 class="bio_title" style="text-align:center;">Votre bio</h3>
-                            <?php echo $bio_root?>
-                            <?php }
-                                }?>
                         </div>
                     </div>
                     <div class="container" style="padding-top:2px;">
