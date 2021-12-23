@@ -1,4 +1,7 @@
 <?php
+
+    header('Content-Type: text/html; charset=UTF-8');
+    setlocale(LC_ALL, "fr_FR.UTF8", "French");
     session_start();
     include_once('bdd.php');
     
@@ -28,7 +31,7 @@
         $pays = $membres['pays'];
         $sexe = $membres['sex'];
         $age= $membres['age'];
-        $date = $membres['date_creation'];
+        $date = strftime("%d %B %G ", strtotime($membres['date_creation']));
         $photo = $membres['photo'];
         $bio = $membres['bio'];
     }
@@ -62,7 +65,7 @@
 
     <div class='body_box'>
         <!-- contenu de la page dans la div content divisée en grilles avec Bootstrap -->
-        <div class="container content" style="padding-left:4%;padding-right:5%;">
+        <div class="container content" style="padding-left:4%;padding-right:5%;margin-top:5%">
             <script>
             function showDiv() {
                 document.getElementById('new_pic').style.display = "block";
@@ -81,6 +84,9 @@
             }
             </script>
 
+            <?php 
+            if (isset($_SESSION['IS_CONNECTED'])) {
+                if ($_SESSION['table']  == 'membres') { ?>
 
             <div class="row">
                 <!--bloc gauche profil utilisateur -->
@@ -135,15 +141,9 @@
                 <div class="col-md-9 col-lg-9 col-xl-9">
                     <div class="col-md-12" style="background-color:rgba(149, 91, 49, 0.06);padding:30px;">
 
-
-
-                        <h1 style="padding:50px;padding-bottom:0;">Statistiques de votre bibliothèque</h1>
-
-
+                        <h1 style="padding:50px;padding-bottom:0;">Ta bibliothèque</h1>
                         <div class="books_div" style="margin-top:10%;">
-
                             <h2 style="text-align:left;">Vos livres enregistrés</h2>
-
                             <div class="progress" style="margin-left:15px;margin-right:15px;height:30px">
                                 <div class="progress-bar progress-bar-success" role="progressbar"
                                     style="font-size:small;width:40%;background-color:green">
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="progress-bar progress-bar-warning" role="progressbar"
                                     style="font-size:small;width:10%;background-color:purple;">
-                                    en lecture
+                                    en cours de lecture
                                 </div>
                                 <div class="progress-bar progress-bar-danger" role="progressbar"
                                     style="font-size:small;width:20%;background-color:orange;">
@@ -163,7 +163,8 @@
                                 <div class="d-inline">Total livres enregistrés:</div>
                                 <div class="d-inline" style="float:center;">PHP number</div>
                                 <div class="d-inline"">
-                                        <a href=" ../html/library.html" class="more" style="margin-left:30%;">Voir
+                                                <a href=" ../html/library.html" class="more" style="margin-left:30%;">
+                                    Voir
                                     plus...</a>
                                 </div>
                             </div>
@@ -278,6 +279,50 @@
                     </div>
                 </div>
             </div>
+            <?php 
+                } else {?>
+            <div style="background-color:rgba(149, 91, 49, 0.06);margin:50px;padding:5%">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div style="padding-top:5%" class="col-4">
+                        <div class="items_box">
+                            <h1 style=" text-align:center;font-size:36px;" class='pseudo'><?php echo $pseudo?></h1>
+                            <?php echo'<img class="icon_gender" src="icons/icon_',$sexe, '.png"/>';?>
+                        </div>
+
+                        <div class="three_infos">
+                            <h3 class="three_infos_style">Statut <?php echo $role?>
+                                </br>Depuis le <?php echo $date?></h3>
+                        </div>
+
+                    </div>
+                    <div class=" col-3">
+                        <div class="pic_parent" style="margin-top:2px;">
+                            <img class='profil_pic' src="<?php echo $photo; ?>" />
+
+                            <button class='profil_pic edit_pic_button' onclick="showDiv()"></button>
+                        </div>
+
+                        <div id="new_pic" class="container" style="display:none;">
+                            <form action="ajout_photo.php" method="post" enctype="multipart/form-data">
+                                <label for "avatar" style="text-align:center;"> Choisissez une photo de profil :</label>
+                                <input type="file" name="file" id="file" style="color:rgb(3, 54, 4);padding:10px;"
+                                    accept="image/png, image/jpeg">
+                                <button class="bouton_style" style="margin-right:15%;border:none;"
+                                    type="submit">Envoyer</button>
+                                <button class="bouton_style" style="border:none;" onclick="hideDiv()">Annuler</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+
+                </div>
+
+            </div>
+
+            <?php
+                }
+            }?>
         </div>
 
         <!--footer-->

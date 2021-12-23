@@ -63,6 +63,11 @@
     height: 130px;
     width: 130px;
 }
+
+.goto_profil:hover {
+    color: yellow;
+
+}
 </style>
 
 <body>
@@ -71,7 +76,7 @@
         <?php include_once('navbar.php') ?>
 
         <!-- contenu de la page dans la div content divisée en grilles avec Bootstrap -->
-        <div class="container content" style="padding:2%;">
+        <div class="container content" style="padding:2%;margin-top:5%">
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-xl-6" style="padding-left:2%;">
                     <div class="row">
@@ -110,7 +115,7 @@
 
                     <h3
                         style="margin-left:9%;margin-top:15%;letter-spacing: 2px;font-size: 26px;color: rgb(100, 54, 6);text-align: center;">
-                        Vous avez déjà ajouté ce livre à votre bibliothèque !
+                        Tu as déjà ajouté ce livre à ta bibliothèque !
                     </h3>
 
                     <div class="row" style="margin-top:10%;margin-left:5%">
@@ -139,6 +144,15 @@
                                     Déjà lu!</h4>
                             </div>
                         </div>
+                        <a href="./profil.php" style="text-decoration:none;">
+                            <h3 style="margin-top:15%;letter-spacing: 2px;font-size: 20px;color: rgb(100, 54, 6);text-align: center;"
+                                onMouseOver="this.style.color='rgb(166, 123, 78)'"
+                                onMouseOut="this.style.color='rgb(100, 54, 6)'">
+
+                                -> Aller voir ma bibliothèque
+                            </h3>
+                        </a>
+
                     </div>
 
                     <?php 
