@@ -52,9 +52,6 @@ $liste = $query1->fetchAll();
                             Attendez quelques secondes, on cherche...
                         </div>
                     </ul>
-
-
-
                 </div>
 
                 <div class="col-md-2 col-lg-2 col-xl-2"></div>

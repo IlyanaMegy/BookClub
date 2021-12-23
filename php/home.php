@@ -4,21 +4,9 @@ include_once('bdd.php');
 $query1 = $pdo->prepare('SELECT * FROM livres');
 $query1->execute();
 $liste_livres = $query1->fetchAll();
-foreach ($liste_livres as $livres) {
-        $id_livres = $livres['id_livre'];
-        $photo= $livres['photo'];
-        $titre = $livres['titre'];
-        $auteur = $livres['auteur'];
-        $genre = $livres['genre'];
-        $editeur = $livres['editeur'];
-        $resume = $livres['resume'];
-        $date_parrution = $livres['date_parrution'];
-        $note = $livres['note'];
-        $parametre = "photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note";
 
-}
-$liste = $query1->fetchAll(); 
 
+//list newest books in databse
 $query4newest = $pdo->prepare('SELECT * FROM livres ORDER BY date_ajout DESC LIMIT 4');
 $query4newest->execute();
 $newest_books4 = $query4newest->fetchAll();
@@ -27,9 +15,26 @@ $query6newest = $pdo->prepare('SELECT * FROM livres ORDER BY date_ajout DESC LIM
 $query6newest->execute();
 $newest_books6 = $query6newest->fetchAll();
 
-//list newest books in databse
-//list popular books (>=4*)
-//if connected, if book in library, list same genre or author books
+
+//list books author of the day
+$auteurdujour = "J.K. Rowling";
+$query4author = $pdo->prepare('SELECT * FROM livres WHERE auteur="J.K. Rowling" LIMIT 4');
+$query4author->execute();
+$authoroftheday4 = $query4author->fetchAll();
+
+$query6author = $pdo->prepare('SELECT * FROM livres WHERE auteur="J.K. Rowling" LIMIT 6');
+$query6author->execute();
+$authoroftheday6 = $query6author->fetchAll();
+
+
+//6 random books
+$queryrandom4 = $pdo->prepare('SELECT * FROM livres ORDER BY RAND() LIMIT 4');
+$queryrandom4->execute();
+$randombooks4 = $queryrandom4->fetchAll();
+
+$queryrandom6 = $pdo->prepare('SELECT * FROM livres ORDER BY RAND() LIMIT 6');
+$queryrandom6->execute();
+$randombooks6 = $queryrandom6->fetchAll();
 ?>
 
 
@@ -160,7 +165,7 @@ $newest_books6 = $query6newest->fetchAll();
 
             <!--Selection 1 = livres récemment ajoutés-->
             <div id="selection1" class="carousel slide selection1" style="margin-top:15%" data-ride="carousel">
-                <h2>Récemments ajoutés à notre base de données :</h2>
+                <h2>Livres récemments ajoutés...</h2>
 
                 <div class="carousel-inner">
 
@@ -179,7 +184,7 @@ $newest_books6 = $query6newest->fetchAll();
                                 $date_ajout = $livres['date_ajout'];
                                 $date_parrution=$livres['date_parrution']; 
                                 $note=$livres['note'];
-                                $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note";
+                                $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
                                 
                             ?>
 
@@ -220,12 +225,12 @@ $newest_books6 = $query6newest->fetchAll();
                                $date_ajout = $livres['date_ajout'];
                                $date_parrution=$livres['date_parrution']; 
                                $note=$livres['note'];
-                               $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note";
+                               $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
     
                                if ($i > 1 ){?>
                             <div class=" col-3">
                                 <div class="decoration">
-                                    <a href=" livre.php?<?php echo $parametre;?>">
+                                    <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
                                         <div style="height:55%;">
                                             <h4 style="text-align:center;"><?php echo $titre ?></h4>
                                         </div>
@@ -258,35 +263,88 @@ $newest_books6 = $query6newest->fetchAll();
 
 
 
-            <!--Selection 2 seulement si utilisateur est connecté = séléction personnelle-->
-            <div id="selection2" class="carousel slide selection" data-ride="carousel">
+            <div id="selection2" class="carousel slide selection" style="margin-top:200px;" data-ride="carousel">
+                <h2><?php echo $auteurdujour ?> à l'honneur! </h2>
                 <div class="carousel-inner">
 
                     <!--slide1-->
                     <div class="carousel-item active" name="slide_1">
-                        <div class="row">
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img1.png" alt="">
+                        <div class="row" style="width: 80%; margin-left: 10%;">
+                            <?php
+                            foreach ($authoroftheday4 as $livres) {
+                                $id_livres=$livres['id_livre']; 
+                                $photo=$livres['photo'];
+                                $titre=$livres['titre']; 
+                                $auteur=$livres['auteur']; 
+                                $genre=$livres['genre']; 
+                                $editeur=$livres['editeur'];
+                                $resume=$livres['resume'];
+                                $date_ajout = $livres['date_ajout'];
+                                $date_parrution=$livres['date_parrution']; 
+                                $note=$livres['note'];
+                                $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
+                                
+                            ?>
+
+                            <div class=" col-3">
+                                <div class="decoration">
+                                    <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
+                                        <div style="height:55%;">
+                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                        </div>
+                                        <div>
+                                            <img style="margin-left:25%;" class=" d-block w-50"
+                                                src="<?php echo $photo ?>" alt="book_pic">
+                                        </div>
+                                    </a>
+                                </div>
+
                             </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img2.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img3.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img4.png" alt="">
-                            </div>
+
+                            <?php 
+                            } 
+                            ?>
                         </div>
                     </div>
 
                     <!--slide 2-->
                     <div class="carousel-item" name="slide_2">
-                        <div class="row">
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img3.png" alt="">
+                        <div class="row" style="width: 80%; margin-left: 10%;">
+                            <?php
+                           $i = 0;
+                           foreach ($authoroftheday6 as $livres) {
+                               $id_livres=$livres['id_livre']; 
+                               $photo=$livres['photo'];
+                               $titre=$livres['titre']; 
+                               $auteur=$livres['auteur']; 
+                               $genre=$livres['genre']; 
+                               $editeur=$livres['editeur'];
+                               $resume=$livres['resume'];
+                               $date_ajout = $livres['date_ajout'];
+                               $date_parrution=$livres['date_parrution']; 
+                               $note=$livres['note'];
+                               $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
+    
+                               if ($i > 1 ){?>
+                            <div class=" col-3">
+                                <div class="decoration">
+                                    <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
+                                        <div style="height:55%;">
+                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                        </div>
+                                        <div>
+                                            <img style="margin-left:25%;" class=" d-block w-50"
+                                                src="<?php echo $photo ?>" alt="book_pic">
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img4.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img5.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img6.png" alt="">
-                            </div>
+
+                            <?php
+                                }
+                                $i++;
+                            } 
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -303,35 +361,88 @@ $newest_books6 = $query6newest->fetchAll();
 
 
 
-            <!--Selection 4 = livres adorés (les mieux notés)-->
             <div id="selection3" class="carousel slide selection" data-ride="carousel">
+                <h2>Six livres sélectionnés au hasard.</h2>
                 <div class="carousel-inner">
 
                     <!--slide1-->
                     <div class="carousel-item active" name="slide_1">
-                        <div class="row">
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img1.png" alt="">
+                        <div class="row" style="width: 80%; margin-left: 10%;">
+                            <?php
+                            foreach ($randombooks4 as $livres) {
+                                $id_livres=$livres['id_livre']; 
+                                $photo=$livres['photo'];
+                                $titre=$livres['titre']; 
+                                $auteur=$livres['auteur']; 
+                                $genre=$livres['genre']; 
+                                $editeur=$livres['editeur'];
+                                $resume=$livres['resume'];
+                                $date_ajout = $livres['date_ajout'];
+                                $date_parrution=$livres['date_parrution']; 
+                                $note=$livres['note'];
+                                $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
+                                
+                            ?>
+
+                            <div class=" col-3">
+                                <div class="decoration">
+                                    <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
+                                        <div style="height:55%;">
+                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                        </div>
+                                        <div>
+                                            <img style="margin-left:25%;" class=" d-block w-50"
+                                                src="<?php echo $photo ?>" alt="book_pic">
+                                        </div>
+                                    </a>
+                                </div>
+
                             </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img2.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img3.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img4.png" alt="">
-                            </div>
+
+                            <?php 
+                            } 
+                            ?>
                         </div>
                     </div>
 
                     <!--slide 2-->
                     <div class="carousel-item" name="slide_2">
-                        <div class="row">
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img3.png" alt="">
+                        <div class="row" style="width: 80%; margin-left: 10%;">
+                            <?php
+                           $i = 0;
+                           foreach ($randombooks6 as $livres) {
+                               $id_livres=$livres['id_livre']; 
+                               $photo=$livres['photo'];
+                               $titre=$livres['titre']; 
+                               $auteur=$livres['auteur']; 
+                               $genre=$livres['genre']; 
+                               $editeur=$livres['editeur'];
+                               $resume=$livres['resume'];
+                               $date_ajout = $livres['date_ajout'];
+                               $date_parrution=$livres['date_parrution']; 
+                               $note=$livres['note'];
+                               $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
+    
+                               if ($i > 1 ){?>
+                            <div class=" col-3">
+                                <div class="decoration">
+                                    <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
+                                        <div style="height:55%;">
+                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                        </div>
+                                        <div>
+                                            <img style="margin-left:25%;" class=" d-block w-50"
+                                                src="<?php echo $photo ?>" alt="book_pic">
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img4.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img5.png" alt="">
-                            </div>
-                            <div class="col-3"><img class="d-block w-100" src="../selection_livres/img6.png" alt="">
-                            </div>
+
+                            <?php
+                                }
+                                $i++;
+                            } 
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -358,7 +469,7 @@ $newest_books6 = $query6newest->fetchAll();
             $resume=$livres['resume']; 
             $date_parrution=$livres['date_parrution']; 
             $note=$livres['note'];
-            $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note";
+            $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
         ?>
 
         <div class=" livres">

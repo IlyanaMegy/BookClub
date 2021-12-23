@@ -1,6 +1,18 @@
 <?php
+
+    header('Content-Type: text/html; charset=UTF-8');
+    setlocale(LC_ALL, "fr_FR.UTF8", "French");
     session_start();
     include_once('bdd.php');
+
+    $pseudo = $_SESSION['pseudo'];
+    
+    $idquerymembre = $pdo->prepare("SELECT id_membre FROM membres WHERE pseudo_membre='$pseudo'");
+    $idquerymembre->execute();
+    $current_user_membre = $idquerymembre->fetchAll();
+    foreach ($current_user_membre as $membres) {
+        $id_user = $membres['id_membre'];
+    }
 
     $photo = $_GET['photo'];
     $titre = $_GET['titre'];
@@ -8,15 +20,23 @@
     $genre = $_GET['genre'];
     $editeur = $_GET['editeur'];
     $resume = $_GET['resume'];
-    $date_parrution = $_GET['date_parrution'];
+    $date_parrution = strftime("%d %B %G", strtotime($_GET['date_parrution']));
+    $date_ajout = strftime("%d %B %G ", strtotime($_GET['date_ajout']));
     $note = $_GET['note'];
+
+    $id_book_query = $pdo->prepare("SELECT id_livre FROM livres WHERE titre='$titre'");
+    $id_book_query->execute();
+    $current_book_id = $id_book_query->fetchAll();
+    foreach ($current_book_id as $res) {
+        $id_livre = $res['id_livre'];
+    }
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>BookClub - Livre</title>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -33,6 +53,17 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
+<style>
+.addtolib {
+    background-color: #f0e9af8c;
+    padding: 15%;
+    padding-right: 0;
+    padding-left: 0;
+    height: 130px;
+    width: 130px;
+}
+</style>
 
 <body>
     <div class='body_box'>
@@ -66,60 +97,154 @@
                             auteur <?php echo $auteur?>
                         </div>
                     </div>
+                    <?php 
+                if (isset($_SESSION['IS_CONNECTED'])) {
+                    if ($_SESSION['table']  == 'membres') { 
 
-                    <div class="row" style="margin-top:5%;">
-                        <div class="col-md-4 col-lg-4 col-xl-4"></div>
+                        $sql = "SELECT COUNT(*) from bib_perso WHERE id_membre ='$id_user' AND id_livre='$id_livre'"; // for checking >1 records
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(1, $_GET['id'], PDO::PARAM_INT);
+                        $stmt->execute();
 
+                        if($stmt->fetchColumn()){?>
+
+                    <h3
+                        style="margin-left:9%;margin-top:15%;letter-spacing: 2px;font-size: 26px;color: rgb(100, 54, 6);text-align: center;">
+                        Vous avez déjà ajouté ce livre à votre bibliothèque !
+                    </h3>
+
+                    <div class="row" style="margin-top:10%;margin-left:5%">
                         <div class="col-md-4 col-lg-4 col-xl-4">
-                            Note <?php echo $note?>
+                            <div style="padding:5%;padding-left:12%;background-color:grey;" class="addtolib">
+                                <img style=" width: 70px; height:70px; margin-left:10%"
+                                    src="../css/images/plan_to.png" />
+                                <h4
+                                    style="width:90%;margin-top:5%;letter-spacing: 2px;font-size: 16px;text-align: center;">
+                                    Je prévois de lire</h4>
+                            </div>
                         </div>
 
-                        <div class="col-md-4 col-lg-4 col-xl-4"></div>
+                        <div class="col-md-4 col-lg-4 col-xl-4">
+                            <div style="padding-left:22%;background-color:grey;" class="addtolib">
+                                <img style="width: 70px; height:70px" src="../css/images/reading.png" />
+                                <h4 style="margin-top:5%;letter-spacing: 2px;font-size: 16px;">
+                                    Je le lis</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 col-xl-4">
+                            <div style="padding-left:22%;background-color:grey;" class="addtolib">
+                                <img style="width: 70px; height:70px" src="../css/images/finished.png" />
+                                <h4 style="margin-top:5%;letter-spacing: 2px;font-size: 16px;">
+                                    Déjà lu!</h4>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6">
-                    <h1 style="text-align:left;margin-left:0;margin-top:5%;"><?php echo $titre?></h1>
-                    <h1 style="text-align:left;margin-left:0;margin-bottom:20px;">De <?php echo $auteur?></h1>
-
-                    <h3 style="margin-right:5%;font-size:16px;">Publié le <?php echo $date_parrution?></h3>
-
-                    <h3 style="text-align:left;margin-top:10%;">Résumé</h3>
-                    <textarea
-                        style="width:70%;height:100px;background-color:white;border:1px solid rgba(123, 94, 56, 0.61);padding:1%;margin;10%;"><?php echo $resume?>
-                    </textarea>
 
                     <?php 
-            if (isset($_SESSION['IS_CONNECTED'])) {
-                if ($_SESSION['table']  == 'root') { ?>
+                        } else {
+                    ?>
+                    <h3
+                        style="margin-left:9%;margin-top:15%;letter-spacing: 2px;font-size: 26px;color: rgb(100, 54, 6);text-align: center;">
+                        Ajoute-le dans ta bibliothèque !
+                    </h3>
+
+                    <div class="row" style="margin-top:10%;margin-left:5%">
+                        <div class="col-md-4 col-lg-4 col-xl-4">
+                            <form action="add_to_lib.php" style="margin-top:5%;" method="post">
+                                <input type="id_user" style="display:none" name="id_user"
+                                    value="<?php echo "$id_user" ?>" required />
+                                <input type="id_book" style="display:none" name="id_book"
+                                    value="<?php echo "$id_livre" ?>" required />
+                                <input type="state" style="display:none" name="state" value="plan_to_read" required />
+                                <button style="background-color:transparent;border:none;" type="submit">
+                                    <div style="padding:5%;padding-left:12%" class="addtolib">
+                                        <img style=" width: 70px; height:70px; margin-left:10%"
+                                            src="../css/images/plan_to.png" />
+                                        <h4
+                                            style="width:90%;margin-top:5%;letter-spacing: 2px;font-size: 16px;color: rgb(100, 54, 6);text-align: center;">
+                                            Je prévois de lire</h4>
+                                    </div>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 col-xl-4">
+                            <form action="add_to_lib.php" style="margin-top:5%;" method="post">
+                                <input type="id_user" style="display:none" name="id_user"
+                                    value="<?php echo "$id_user" ?>" required />
+                                <input type="id_book" style="display:none" name="id_book"
+                                    value="<?php echo "$id_livre" ?>" required />
+                                <input type="state" style="display:none" name="state" value="reading" required />
+                                <button style="background-color:transparent;border:none;" type="submit">
+                                    <div class="addtolib">
+                                        <img style="width: 70px; height:70px" src="../css/images/reading.png" />
+                                        <h4
+                                            style="margin-top:5%;letter-spacing: 2px;font-size: 16px;color: rgb(100, 54, 6);">
+                                            Je le lis</h4>
+                                    </div>
+                                </button>
+                            </form>
+
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 col-xl-4">
+                            <form action="add_to_lib.php" style="margin-top:5%;" method="post">
+                                <input type="id_user" style="display:none" name="id_user"
+                                    value="<?php echo "$id_user" ?>" required />
+                                <input type="id_book" style="display:none" name="id_book"
+                                    value="<?php echo "$id_livre" ?>" required />
+                                <input type="state" style="display:none" name="state" value="finished" required />
+                                <button style="background-color:transparent;border:none;" type="submit">
+                                    <div class="addtolib">
+                                        <img style="width: 70px; height:70px" src="../css/images/finished.png" />
+                                        <h4
+                                            style="margin-top:5%;letter-spacing: 2px;font-size: 16px;color: rgb(100, 54, 6);">
+                                            Déjà lu!</h4>
+                                    </div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <?php 
+                        }
+                    }
+                } else { ?>
+                    <p>Connectez-vous pour ajouter ce livre à votre bibliothèque !</p>
+                    <?php
+                } ?>
+                </div>
+
+                <div class=" col-md-6 col-lg-6 col-xl-6">
+                    <h1 style="text-align:left;margin-left:0;margin-top:5%;"><?php echo $titre?></h1>
+                    <h1 style="text-align:left;margin-left:0;margin-bottom:20px;">De <?php echo $auteur?>
+                    </h1>
+
+                    <h3 style="margin-right:5%;font-size:16px;">Publié le
+                        <?php echo $date_parrution ?></h3>
+
+                    <h3 style="margin-right:5%;font-size:16px;">Ajouté le
+                        <?php echo $date_ajout ?></h3>
+
+                    <h3 style="text-align:left;margin-top:10%;">Résumé</h3>
+                    <p
+                        style="width:70%;height:auto;background-color:white;border:1px solid rgba(123, 94, 56, 0.61);padding:1%;margin:10%;">
+                        <?php echo $resume?>
+                    </p>
+
+                    <?php 
+                    if (isset($_SESSION['IS_CONNECTED'])) {
+                        if ($_SESSION['table']  == 'root') { ?>
                     <a href="moderation_livres.php">
                         <button class="valider_bouton" type="submit">
                             Modifier ou supprimer ce livre ?
                         </button>
                     </a>
-                    <button class="valider_bouton" type="submit">
-                        Ajouter à ma bibliothèque.
-                    </button>
                     <?php    
-                } else { ?>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6 col-xl-6">
-                            <button class="valider_bouton" type="submit">
-                                Ajouter à ma bibliothèque
-                            </button>
-                        </div>
-                        <div class="col-md-6 col-lg-6 col-xl-6">
-
-                        </div>
-
-                    </div>
-                    <?php
-                    }
-
-            }else{ ?>
-                    <p>Connectez-vous pour ajouter ce livre à votre bibliothèque !</p>
-                    <?php
-            } ?>
+                        }
+                    }?>
                 </div>
             </div>
         </div>

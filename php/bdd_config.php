@@ -49,12 +49,12 @@ $query4 = $pdo->prepare('CREATE TABLE IF NOT EXISTS bookclub.bib_perso (
         id_bib int not null auto_increment,
         id_livre int not null,
         id_membre int not null,
-        status_livre varchar(255) not null,
+        statut varchar(255) not null,
         note int null,
         PRIMARY KEY (id_bib),
-        FOREIGN KEY (id_livre) 
-        REFERENCES membres(id_membre),
         FOREIGN KEY (id_membre) 
+        REFERENCES membres(id_membre),
+        FOREIGN KEY (id_livre)
         REFERENCES livres(id_livre));');
 $query4->execute();
 
