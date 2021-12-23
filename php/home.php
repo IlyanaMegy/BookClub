@@ -66,10 +66,17 @@ $randombooks6 = $queryrandom6->fetchAll();
 <style>
 .decoration {
     background-color: #fffce582;
-    height: 200px;
+    height: 250px;
     border: 1px solid #ceb068;
-    padding: 20px;
+    padding: 15px;
     margin-top: 50px;
+}
+
+.add_date {
+    color: black;
+    font-size: 11px;
+    text-decoration: none;
+    padding: 10px;
 }
 </style>
 
@@ -191,13 +198,18 @@ $randombooks6 = $queryrandom6->fetchAll();
                             <div class=" col-3">
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
-                                        <div style="height:55%;">
+                                        <div style="height:40%;">
                                             <h4 style="text-align:center;"><?php echo $titre ?></h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
+                                            <p class="add_date">ajouté le </br>
+                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
+                                                echo $date?>
+                                            </p>
                                         </div>
+
                                     </a>
                                 </div>
 
@@ -231,13 +243,18 @@ $randombooks6 = $queryrandom6->fetchAll();
                             <div class=" col-3">
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
-                                        <div style="height:55%;">
+                                        <div style="height:40%;">
                                             <h4 style="text-align:center;"><?php echo $titre ?></h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
+                                            <p class="add_date">ajouté le </br>
+                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
+                                                echo $date?>
+                                            </p>
                                         </div>
+
                                     </a>
                                 </div>
                             </div>
@@ -289,12 +306,16 @@ $randombooks6 = $queryrandom6->fetchAll();
                             <div class=" col-3">
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
-                                        <div style="height:55%;">
+                                        <div style="height:40%;">
                                             <h4 style="text-align:center;"><?php echo $titre ?></h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
+                                            <p class="add_date">ajouté le </br>
+                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
+                                                echo $date?>
+                                            </p>
                                         </div>
                                     </a>
                                 </div>
@@ -329,13 +350,18 @@ $randombooks6 = $queryrandom6->fetchAll();
                             <div class=" col-3">
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
-                                        <div style="height:55%;">
+                                        <div style="height:40%;">
                                             <h4 style="text-align:center;"><?php echo $titre ?></h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
+                                            <p class="add_date">ajouté le </br>
+                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
+                                                echo $date?>
+                                            </p>
                                         </div>
+
                                     </a>
                                 </div>
                             </div>
@@ -387,13 +413,18 @@ $randombooks6 = $queryrandom6->fetchAll();
                             <div class=" col-3">
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
-                                        <div style="height:55%;">
+                                        <div style="height:40%;">
                                             <h4 style="text-align:center;"><?php echo $titre ?></h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
+                                            <p class="add_date">ajouté le </br>
+                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
+                                                echo $date?>
+                                            </p>
                                         </div>
+
                                     </a>
                                 </div>
 
@@ -427,13 +458,18 @@ $randombooks6 = $queryrandom6->fetchAll();
                             <div class=" col-3">
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
-                                        <div style="height:55%;">
+                                        <div style="height:40%;">
                                             <h4 style="text-align:center;"><?php echo $titre ?></h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
+                                            <p class="add_date">ajouté le </br>
+                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
+                                                echo $date?>
+                                            </p>
                                         </div>
+
                                     </a>
                                 </div>
                             </div>

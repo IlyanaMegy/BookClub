@@ -41,7 +41,11 @@ $query3 = $pdo->prepare('CREATE TABLE IF NOT EXISTS bookclub.livres (
         resume text not null,
         date_parrution DATE not null,
         date_ajout DATE not null,
+        date_last_update DATE null,
+        id_last_update int null,        
         note int null,
+        FOREIGN KEY (id_last_update)
+        REFERENCES root(id_root),
         PRIMARY KEY (id_livre));');
 $query3->execute();
 
