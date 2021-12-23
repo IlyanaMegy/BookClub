@@ -1,7 +1,7 @@
 <?php
 
     header('Content-Type: text/html; charset=UTF-8');
-    setlocale(LC_ALL, "fr_FR.UTF8", "French");
+    setlocale(LC_ALL, "fr_FR.UTF8", "French", "fra_fra");
     session_start();
     include_once('bdd.php');
     
@@ -17,7 +17,7 @@
         $pays = $membres['pays'];
         $sexe = $membres['sex'];
         $age = $membres['age'];
-        $date = $membres['date_creation'];
+        $date =  utf8_encode(strftime('%d %B %Y',strtotime($membres['date_creation'])));
         $photo = $membres['photo'];
         $bio = $membres['bio'];
     }
@@ -31,7 +31,7 @@
         $pays = $membres['pays'];
         $sexe = $membres['sex'];
         $age= $membres['age'];
-        $date = strftime("%d %B %G ", strtotime($membres['date_creation']));
+        $date = utf8_encode(strftime('%d %B %Y',strtotime($membres['date_creation'])));
         $photo = $membres['photo'];
         $bio = $membres['bio'];
     }

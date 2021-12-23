@@ -1,7 +1,6 @@
 <?php
-
     header('Content-Type: text/html; charset=UTF-8');
-    setlocale(LC_ALL, "fr_FR.UTF8", "French");
+    setlocale(LC_ALL, "fr_FR.UTF8", "French", "fra_fra");
     session_start();
     include_once('bdd.php');
 
@@ -20,8 +19,8 @@
     $genre = $_GET['genre'];
     $editeur = $_GET['editeur'];
     $resume = $_GET['resume'];
-    $date_parrution = strftime("%d %B %G", strtotime($_GET['date_parrution']));
-    $date_ajout = strftime("%d %B %G ", strtotime($_GET['date_ajout']));
+    $date_parrution =  utf8_encode(strftime('%d %B %Y',strtotime($_GET['date_parution'])));
+    $date_ajout =  utf8_encode(strftime('%d %B %Y',strtotime($_GET['date_creation'])));
     $note = $_GET['note'];
 
     $id_book_query = $pdo->prepare("SELECT id_livre FROM livres WHERE titre='$titre'");

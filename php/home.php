@@ -1,4 +1,6 @@
 <?php 
+header('Content-Type: text/html; charset=UTF-8');
+setlocale(LC_ALL, "fr_FR.UTF8", "French", "fra_fra");
 session_start();
 include_once('bdd.php');
 $query1 = $pdo->prepare('SELECT * FROM livres');
@@ -188,11 +190,10 @@ $randombooks6 = $queryrandom6->fetchAll();
                                 $genre=$livres['genre']; 
                                 $editeur=$livres['editeur'];
                                 $resume=$livres['resume'];
-                                $date_ajout = $livres['date_ajout'];
-                                $date_parrution=$livres['date_parrution']; 
+                                $date_ajout = utf8_encode(strftime('%d %B %Y',strtotime($livres['date_ajout'])));
+                                $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
                                 $note=$livres['note'];
                                 $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
-                                
                             ?>
 
                             <div class=" col-3">
@@ -205,8 +206,7 @@ $randombooks6 = $queryrandom6->fetchAll();
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
                                             <p class="add_date">ajouté le </br>
-                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
-                                                echo $date?>
+                                                <?php echo $date_ajout ?>
                                             </p>
                                         </div>
 
@@ -234,8 +234,8 @@ $randombooks6 = $queryrandom6->fetchAll();
                                $genre=$livres['genre']; 
                                $editeur=$livres['editeur'];
                                $resume=$livres['resume'];
-                               $date_ajout = $livres['date_ajout'];
-                               $date_parrution=$livres['date_parrution']; 
+                               $date_ajout = utf8_encode(strftime('%d %B %Y',strtotime($livres['date_ajout'])));
+                               $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
                                $note=$livres['note'];
                                $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
     
@@ -250,8 +250,7 @@ $randombooks6 = $queryrandom6->fetchAll();
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
                                             <p class="add_date">ajouté le </br>
-                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
-                                                echo $date?>
+                                                <?php echo $date_ajout?>
                                             </p>
                                         </div>
 
@@ -280,7 +279,8 @@ $randombooks6 = $queryrandom6->fetchAll();
 
 
 
-            <div id="selection2" class="carousel slide selection" style="margin-top:200px;" data-ride="carousel">
+            <div id="selection2" class="carousel slide selection" style="margin-top:200px;margin-bottom:200px;"
+                data-ride="carousel">
                 <h2><?php echo $auteurdujour ?> à l'honneur! </h2>
                 <div class="carousel-inner">
 
@@ -296,8 +296,8 @@ $randombooks6 = $queryrandom6->fetchAll();
                                 $genre=$livres['genre']; 
                                 $editeur=$livres['editeur'];
                                 $resume=$livres['resume'];
-                                $date_ajout = $livres['date_ajout'];
-                                $date_parrution=$livres['date_parrution']; 
+                                $date_ajout = utf8_encode(strftime('%d %B %Y',strtotime($livres['date_ajout'])));
+                                $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
                                 $note=$livres['note'];
                                 $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
                                 
@@ -307,14 +307,14 @@ $randombooks6 = $queryrandom6->fetchAll();
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
                                         <div style="height:40%;">
-                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                            <h4 style="text-align:center;"><?php echo $titre ?>
+                                            </h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
                                             <p class="add_date">ajouté le </br>
-                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
-                                                echo $date?>
+                                                <?php echo $date_ajout;  ?>
                                             </p>
                                         </div>
                                     </a>
@@ -341,8 +341,8 @@ $randombooks6 = $queryrandom6->fetchAll();
                                $genre=$livres['genre']; 
                                $editeur=$livres['editeur'];
                                $resume=$livres['resume'];
-                               $date_ajout = $livres['date_ajout'];
-                               $date_parrution=$livres['date_parrution']; 
+                               $date_ajout = utf8_encode(strftime('%d %B %Y',strtotime($livres['date_ajout'])));
+                               $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
                                $note=$livres['note'];
                                $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
     
@@ -351,14 +351,14 @@ $randombooks6 = $queryrandom6->fetchAll();
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
                                         <div style="height:40%;">
-                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                            <h4 style="text-align:center;">
+                                                <?php echo $titre ?></h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
                                             <p class="add_date">ajouté le </br>
-                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
-                                                echo $date?>
+                                                <?php echo $date_ajout; ?>
                                             </p>
                                         </div>
 
@@ -387,8 +387,10 @@ $randombooks6 = $queryrandom6->fetchAll();
 
 
 
-            <div id="selection3" class="carousel slide selection" data-ride="carousel">
-                <h2>Six livres sélectionnés au hasard.</h2>
+            <div id="selection3" class="carousel slide selection" style="margin-top:200px;height:500px"
+                data-ride="carousel">
+                <h2 style:margin-top:200px;>Six livres sélectionnés au
+                    hasard.</h2>
                 <div class="carousel-inner">
 
                     <!--slide1-->
@@ -403,8 +405,8 @@ $randombooks6 = $queryrandom6->fetchAll();
                                 $genre=$livres['genre']; 
                                 $editeur=$livres['editeur'];
                                 $resume=$livres['resume'];
-                                $date_ajout = $livres['date_ajout'];
-                                $date_parrution=$livres['date_parrution']; 
+                                $date_ajout = utf8_encode(strftime('%d %B %Y',strtotime($livres['date_ajout'])));
+                                $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
                                 $note=$livres['note'];
                                 $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
                                 
@@ -414,14 +416,16 @@ $randombooks6 = $queryrandom6->fetchAll();
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
                                         <div style="height:40%;">
-                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                            <h4 style="text-align:center;">
+                                                <?php echo $titre ?>
+                                            </h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
-                                            <p class="add_date">ajouté le </br>
-                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
-                                                echo $date?>
+                                            <p class="add_date">ajouté
+                                                le </br>
+                                                <?php echo  $date_ajout; ?>
                                             </p>
                                         </div>
 
@@ -449,8 +453,8 @@ $randombooks6 = $queryrandom6->fetchAll();
                                $genre=$livres['genre']; 
                                $editeur=$livres['editeur'];
                                $resume=$livres['resume'];
-                               $date_ajout = $livres['date_ajout'];
-                               $date_parrution=$livres['date_parrution']; 
+                               $date_ajout = utf8_encode(strftime('%d %B %Y',strtotime($livres['date_ajout'])));
+                               $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
                                $note=$livres['note'];
                                $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
     
@@ -459,14 +463,17 @@ $randombooks6 = $queryrandom6->fetchAll();
                                 <div class="decoration">
                                     <a style="text-decoration:none;" href=" livre.php?<?php echo $parametre;?>">
                                         <div style="height:40%;">
-                                            <h4 style="text-align:center;"><?php echo $titre ?></h4>
+                                            <h4 style="text-align:center;">
+                                                <?php echo $titre ?>
+                                            </h4>
                                         </div>
                                         <div>
                                             <img style="margin-left:25%;" class=" d-block w-50"
                                                 src="<?php echo $photo ?>" alt="book_pic">
-                                            <p class="add_date">ajouté le </br>
-                                                <?php $date=strftime("%d %B %G ", strtotime($date_ajout));
-                                                echo $date?>
+                                            <p class="add_date">
+                                                ajouté le
+                                                </br>
+                                                <?php echo  $date_ajout; ?>
                                             </p>
                                         </div>
 
@@ -502,13 +509,13 @@ $randombooks6 = $queryrandom6->fetchAll();
             $auteur=$livres['auteur']; 
             $genre=$livres['genre']; 
             $editeur=$livres['editeur'];
-            $resume=$livres['resume']; 
-            $date_parrution=$livres['date_parrution']; 
+            $resume=$livres['resume'];              
+            $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
             $note=$livres['note'];
             $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
         ?>
 
-        <div class=" livres">
+        <div>
             <?php echo "<a  href=\"livre.php?$parametre\">"; ?>
 
             <h2>
@@ -526,7 +533,8 @@ $randombooks6 = $queryrandom6->fetchAll();
     <div>
         <h2>
             Vous ne trouvez pas votre bonheur?
-            Proposez-nous un livre que nous ajouterons ici !
+            Proposez-nous un livre que nous
+            ajouterons ici !
         </h2>
         <a href="form_ajout_livres.php">
             <button class="valider_bouton" style="margin-left:40%;">
