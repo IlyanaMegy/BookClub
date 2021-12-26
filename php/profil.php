@@ -117,7 +117,7 @@
 
                         <div class="three_infos">
                             <h3 class="three_infos_style">Statut: <?php echo $role?>
-                                </br>Membre depuis: <?php echo $date?></h3>
+                                </br>Depuis: <?php echo $date?></h3>
                         </div>
 
                         <!-- contenu bio de l'utilisateur php -->
@@ -314,6 +314,10 @@
                             </form>
                         </div>
                     </div>
+                    <form style="float:right;width:min-content;display:inline;" action="deconnexion.php" method="post">
+                        <button class="bouton_style deconnexion" type="submit">Deconnexion</button>
+                    </form>
+
                     <div class="col-3"></div>
 
                 </div>

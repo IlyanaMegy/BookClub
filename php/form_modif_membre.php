@@ -1,17 +1,16 @@
 <?php
     include_once('bdd.php');
     session_start();
-    if(isset($_POST['modif_m'])) {
     $pseudo = $_POST['pseudo'];
-    $query1 = $pdo->prepare('SELECT * FROM membres');
-    $query1->execute();
-    $liste_membres = $query1->fetchAll();
-    foreach ($liste_membres as $membre) {
-        if ($membre['pseudo_membre'] == $pseudo) {
-            $role = $membre['role'];
-        }
-    }
-}
+    $mail = $_POST['mail'];
+    $mdp = $_POST['mdp'];
+    $pays = $_POST['pays'];
+    $sexe = $_POST['sexe'];
+    $age = $_POST['age'];
+    $date_creation = $_POST['date_creation'];
+    $role = $_POST['role'];
+    
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,11 +49,19 @@
                     <form action="update_donnees_membre.php" style="margin-left:10%;" method="post">
                         <select name="role" class="form_select">
                             <option value="Membre">Membre</option>
-                            <option value="Super_Membre">Super Membre</option>
+                            <option value="Admin">Admin</option>
                         </select>
 
-                        <input type="hidden" name="pseudo" value="<?php echo $pseudo ?>" /> <button
-                            class="inscription_boutons" style="height:40px;border-color:gray;color:black;" type=submit>
+                        <input type="hidden" name="pseudo" value="<?php echo $pseudo ?>" />
+                        <input type="text" name="mail" style="display:none;" value="<?php echo $mail; ?>" />
+                        <input type="text" name="mdp" style="display:none;" value="<?php echo $mdp; ?>" />
+                        <input type="text" name="age" style="display:none;" value="<?php echo $age; ?>" />
+                        <input type="text" name="pays" style="display:none;" value="<?php echo $pays; ?>" />
+                        <input type="text" name="date_creation" style="display:none;"
+                            value="<?php echo $date_creation ?>" />
+                        <input type="text" name="sexe" style="display:none;" value="<?php echo $sexe; ?>" />
+                        <button class="inscription_boutons" style="height:40px;border-color:gray;color:black;"
+                            type=submit>
                             Modifier </button>
                     </form>
                 </div>

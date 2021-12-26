@@ -98,10 +98,10 @@ $liste = $query1->fetchAll();
                         <td><button class="valider_bouton" type="submit" name="modif_l">Modifie-le</button></td>
 
                     </form>
+
                 </tr>
-                <?php
-}
-?>
+                <?php } ?>
+            </thead>
         </table>
     </div>
 </body>

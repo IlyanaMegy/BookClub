@@ -512,6 +512,7 @@ $randombooks6 = $queryrandom6->fetchAll();
             $resume=$livres['resume'];              
             $date_parrution=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_parrution'])));
             $note=$livres['note'];
+            $date_ajout=utf8_encode(strftime('%d %B %Y',strtotime($livres['date_ajout'])));
             $parametre="photo=$photo&titre=$titre&auteur=$auteur&genre=$genre&editeur=$editeur&resume=$resume&date_parrution=$date_parrution&note=$note&date_ajout=$date_ajout";
         ?>
 
