@@ -48,7 +48,7 @@ Vous aurez donc bookclub avec des tables remplie.
 Dans votre barre de recherche aller sur `http://localhost:8080/BookClub/php/`, cela devrait vous emmener sur la page d'accueil.
 Vous pouvez vous inscrire ou passer l'étage en entrant en tant que visiteur de passage, néanmoins vous aurez moins de fonctionnalités.
 
-> Si tu es Claire, Flavio ou un de nous correcteurs, je t'invite à
+> Si tu es Claire, Flavio ou un de nos correcteurs, je t'invite à
 > t'inscrire en tant qu’administrateur sur notre site. Pour cela va sur
 > la page non renseignée
 > `http://localhost:8080/BookClub/php/inscription_admin.php`. Cette page
