@@ -9,8 +9,6 @@ if (empty(htmlspecialchars($_POST['pseudo'])) or empty(htmlspecialchars($_POST['
 }
 else {
     $mdp = md5($_POST['mdp']);
-    echo $mdp;
-    echo('SELECT pseudo_membre, mdp_membre FROM membres WHERE pseudo_membre="' . $_POST['pseudo'] . '" AND mdp_membre="$mdp" ');
     $_SESSION['pseudo'] = htmlspecialchars($_POST['pseudo']);
     $query1 = $pdo->prepare('SELECT * FROM root');
     $query1->execute();
@@ -48,7 +46,7 @@ else {
 
     }
     else {
-        header('Location: connexion.php');
+        header('Refresh:0; url=connexion.php');
         exit;
     }
 }

@@ -81,6 +81,9 @@ alert("<?php echo htmlspecialchars('ce pseudo est indisponible', ENT_QUOTES); ?>
         $_SESSION['pseudo'] = htmlspecialchars($_POST['pseudo']);
         $mail = htmlspecialchars($_POST['mail']);
         $mdp = htmlspecialchars($_POST['mdp']);
+
+        $mdp = md5($mdp);
+
         $pays = htmlspecialchars($_POST['pays']);
         $sexe = htmlspecialchars($_POST['sex']);
         $age = htmlspecialchars($_POST['age']);

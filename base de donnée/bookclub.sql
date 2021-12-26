@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 23 déc. 2021 à 16:03
+-- Généré le : dim. 26 déc. 2021 à 17:50
 -- Version du serveur :  10.4.19-MariaDB
 -- Version de PHP : 7.4.19
 
@@ -34,14 +34,6 @@ CREATE TABLE `bib_perso` (
   `statut` varchar(255) NOT NULL,
   `note` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `bib_perso`
---
-
-INSERT INTO `bib_perso` (`id_bib`, `id_livre`, `id_membre`, `statut`, `note`) VALUES
-(1, 4, 1, 'plan_to_read', NULL),
-(4, 4, 1, 'plan_to_read', NULL);
 
 -- --------------------------------------------------------
 
@@ -93,7 +85,8 @@ INSERT INTO `livres` (`id_livre`, `photo`, `titre`, `auteur`, `genre`, `editeur`
 (8, '../css/images/book.jpg', 'Les ailes d\'Alexanne', 'Anne Robillard', 'non renseigné', 'Michel Lafon Poche', '&quot;A la mort de ses parents, Alexanne Kalinovsky est confiée à sa tante Tatiana, dont elle ignorait jusqu\'alors l\'existence. Rapidement, la jeune fille constate que cette dame qui vit dans un immense manoir n\'est pas une personne ordinaire. Alexanne découvre peu à peu l\'histoire de ses origines et ses dons particuliers.&quot; (www.electre.com).', '2014-06-05', '2050-05-15', NULL, NULL, 0),
 (9, '../css/images/book.jpg', 'Les animaux fantastiques', 'J.K. Rowling', 'non renseigné', 'Editions Gallimard', 'Le fabuleux bestiaire du magizoologiste Norbert Dragonneau. Cet ouvrage rassemble plus de quatre-vingts espèces fantastiques et dévoile les six animaux restés secrets depuis le voyage aux Etats-Unis de l\'explorateur. Le Boursouf, l\'Oiseau-Tonnerre ou le Womatou n\'auront plus aucun secret pour les Moldus!', '2020-01-23', '2010-12-23', NULL, NULL, 0),
 (10, '../css/images/book.jpg', 'L Ickabog', 'J.K. Rowling', 'non renseigné', 'Gallimard Jeunesse', '&quot;En héritant du pouvoir de son père Richard le Droit, Fred Sans Effroi est promis à un règne facile, car dans le royaume de Cornucopia, les villes sont magnifiques et la pauvreté n\'existe pas. Ainsi, le roi vaniteux peut se contenter de sourire aux foules en laissant travailler ses conseillers et en s\'intéressant exclusivement à ses parties de chasse. Or, lorsqu\'il doit aller à la rencontre d\'un monarque, Fred demande à la meilleure couturière du royaume de lui confectionner un habit. Il entend vaguement dire que la femme est mal en point, mais il ne s\'en soucie pas. Après quelques jours de travail acharné, Mrs Doisel décède d\'épuisement. Dans les heures qui suivent, les rencontres du roi avec ses conseillers le poussent à commettre quelques maladresses liées à son embarras, mais cela suffit à diviser les opinions à son sujet. Alors que les villes du royaume adorent les nouvelles et les commérages, la rumeur d\'un monstre tueur vivant dans les marécages du nord oblige le roi Fred à se charger de cette affaire. Néanmoins, dans un monde où le monarque doit bien déléguer des tâches à des sujets, comment peut-on s\'assurer que les hommes de main seront toujours fiables? Quand un nouvel impôt garantissant une protection contre l\'Ickabog vient appauvrir les villageois, des doutes s\'installent dans l\'esprit des gens. Quatre adolescents partiront à l\'aventure afin de démêler le vrai du faux.&quot;--', '2020-01-22', '2000-12-23', NULL, NULL, 0),
-(11, '../css/images/book.jpg', 'Une place à prendre', 'J.K. Rowling', 'non renseigné', 'Grasset', '&lt;p&gt;Bienvenue à Pagford, petite bourgade en apparence idyllique. Un notable meurt. Sa place est à prendre...&lt;br&gt;Comédie de mœurs, tragédie teintée d’humour noir, satire féroce de nos hypocrisies sociales et intimes, ce premier roman pour adultes révèle sous un jour inattendu un écrivain prodige.&lt;/p&gt;', '2012-09-28', '2020-12-23', NULL, NULL, 0);
+(11, '../css/images/book.jpg', 'Une place à prendre', 'J.K. Rowling', 'non renseigné', 'Grasset', '&lt;p&gt;Bienvenue à Pagford, petite bourgade en apparence idyllique. Un notable meurt. Sa place est à prendre...&lt;br&gt;Comédie de mœurs, tragédie teintée d’humour noir, satire féroce de nos hypocrisies sociales et intimes, ce premier roman pour adultes révèle sous un jour inattendu un écrivain prodige.&lt;/p&gt;', '2012-09-28', '2020-12-23', NULL, NULL, 0),
+(12, '../css/images/book.jpg', 'One Piece - Édition originale - Tome 55', 'Eiichiro Oda', 'non renseigné', 'Glénat Manga', '&lt;p&gt;Prêt à tout pour sauver son frère, Luffy affronte Magellan, le directeur de la prison sous-marine ! Où le mènera donc cette bataille à laquelle il ne peut échapper ? Surtout que le temps lui est compté avant le transfert d’Ace... Les aventures de Luffy à la poursuite du One Piece continuent !!&lt;/p&gt;', '2017-05-24', '2021-12-26', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +113,8 @@ CREATE TABLE `membres` (
 --
 
 INSERT INTO `membres` (`id_membre`, `pseudo_membre`, `role`, `mail_membre`, `mdp_membre`, `pays`, `sex`, `age`, `date_creation`, `photo`, `bio`) VALUES
-(1, 'ily', 'Membre', 'ilyana.megy@ynov.com', 'omiluk', 'FRance', 'F', 20, '2021-12-22', 'ily/ily.png', NULL);
+(2, 'testmdp', 'Membre', 'lilianem003@gmail.com', 'b040476a880c8853dccdf80ee971d0c9', 'France', 'H', 20, '2021-12-23', NULL, NULL),
+(7, 'ily', 'Membre', 'ilyanamegy@gmail.com', 'b040476a880c8853dccdf80ee971d0c9', 'fr', 'F', 20, '2021-12-26', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +141,7 @@ CREATE TABLE `root` (
 --
 
 INSERT INTO `root` (`id_root`, `pseudo_root`, `role`, `mail_root`, `mdp_root`, `pays`, `sex`, `age`, `date_creation`, `photo`, `bio`) VALUES
-(1, 'ily_root', 'admin', 'ilyanamegy7@gmail.com', 'omiluk', 'France', 'F', 20, '2021-12-23', 'ily_root/ily_root.jpg', NULL);
+(2, 'ilyana', 'admin', 'ilyanamegy7@gmail.com', '89a2dc4c5622cf3ecfe0849545d7d662', 'France', 'F', 20, '2021-12-25', NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -206,19 +200,19 @@ ALTER TABLE `billet`
 -- AUTO_INCREMENT pour la table `livres`
 --
 ALTER TABLE `livres`
-  MODIFY `id_livre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_livre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `root`
 --
 ALTER TABLE `root`
-  MODIFY `id_root` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_root` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Contraintes pour les tables déchargées
