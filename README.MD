@@ -7,6 +7,7 @@
 <div align="center">
   <img src="srcs/screens/home.png" alt="Home Page Preview" style="max-width: 80%; margin: 10px 0;" />
   <img src="srcs/screens/log.png" alt="Login Page Preview" style="max-width: 80%;margin: 10px 0;" />
+  <img src="srcs/schema/bdd.png" alt="Schema BDD" style="max-width: 80%;margin: 10px 0;" />
 </div>
 
 **BookClub** est une bibliothèque virtuelle, vous pouvez trouver des livres que vous pourrez renseigner dans votre propre librairie comme livre lu, à lire ou en cours de lecture.
