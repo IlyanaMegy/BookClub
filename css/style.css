@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('../srcs/Libre_Baskerville/LibreBaskerville-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body, html {
   height: 100%;
   margin: 0;
-  background-color: rgb(245, 253, 180);
+  background-color: #ebe2c5;
 }
 
 .bouton_style{
-  color: rgb(71, 75, 48);
+  color: #47392A;
   border-radius: 10%;
   border: none;
-  background-color: rgb(247, 255, 188);
+  background-color: #DBBD80;
   letter-spacing: 1px;
   text-transform: uppercase;
   width: fit-content;
@@ -21,7 +27,7 @@ body, html {
 
 .fullscreen_bg {
   background-image: url("images/bg.jpg");
-  height: 80%;
+  height: 98%;
 
   /* image centrée en placée parfaitement */
   background-position: center;
@@ -32,29 +38,24 @@ body, html {
   height: 80%;
 }
 
-
 .navbar_style{
-  background-color: #412106c9;
+  background-color: #43311ab6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.logo{
-  display: inline-block;
-  height: 80px;
-  width: 80px;
-}
 .link_disable{
   letter-spacing: 1px;
   text-align: left;
   font-size: 16px;
 }
 .link_enable{
-  color: rgb(253, 236, 180);
+  color: #eddcb3 ;
   letter-spacing: 1px;
   text-align: left;
   font-size: 16px;
 }
 .link_enable:hover{
-  color: beige;
+  color: #c5ab78;
   outline:0;
 }
 
@@ -69,12 +70,12 @@ body, html {
 }
 
 .drop_style{
-  background-color:#d5d54b;
-  color:rgb(68, 41, 15);
+  background-color:#DBBD80;
+  color:#47392A;
 }
 .drop_style:hover{
   color:black;
-  background-color:#d5d54b;
+  background-color:#DBBD80;
   outline:0;
 }
 
@@ -95,47 +96,46 @@ body, html {
 /*message de bienvenue*/
 .message_box{
   padding: 15px;
-  width: 75%;
+  width: 95%;
   margin-top: 13%;
-  margin-left: 14%;
+  margin-left: 15%;
 }
 .welcome{
+  padding-right: 2%;
   letter-spacing: 4px;
   text-transform: uppercase;
-  font-size: small;  
-  color: rgb(245, 253, 180);
+  font-size: large;  
+  color: #cabc8e;
   text-align: left;
 }
 .text{
   margin-top: 2%;
   letter-spacing: 3px;
-  font-size: 40px;
-  color: rgb(245, 253, 180);
+  font-size: 50px;
+  color: #cabc8e;
   text-align: left;
 }
 
 /*container pour les éléments de la page home*/
 
 .content_box_home{
-  margin-top: 10%;
-  width: 80%;
-  background-color: rgba(213, 164, 102, 0.31);
-  border: 2px solid rgba(123, 94, 56, 0.03);
+  margin-top: 5%;
+  width: 90%;
+  background-color: #f7f3e2;
 }
 
 .content{
-  padding-top: 2%;
+  padding-top: 1%;
   padding-bottom: 2%;
-  margin-top: 10%;
   height: auto;
   width: 80%;
-  background-color:rgba(184, 135, 72, 0.31);
-  border:2px solid rgba(123, 94, 56, 0.03);
+  background-color:#FCF7E7;
+  border:2px solid #f7e6c45e;
 }
 
 hr{
   border: none;
-  border-top: 3px double rgba(145, 107, 66, 0.77);
+  border-top: 3px double #A39C67;
   overflow: visible;
   text-align: center;
   height: 5px;
@@ -144,14 +144,14 @@ h1{
   margin: 3%;
   letter-spacing: 3px;
   font-size: 35px;
-  color: rgb(77, 57, 9);
+  color: #47392A;
   text-align: center;
 }
 h2{
   margin: 3%;
   letter-spacing: 3px;
   font-size: 26px;
-  color: rgb(100, 54, 6);
+  color: #47392A;
   text-align: center;
 }
 h3{
@@ -162,7 +162,6 @@ h4{
   font-size:16px;
   color: rgb(60, 29, 1);
 }
-
 
 .selection{
   height: 200px;
@@ -176,8 +175,6 @@ h4{
 /*-----------------------------------------------*/
 /*page profil*/
 
-
-
 .items_box{
   display: block;
   width: initial;
@@ -190,9 +187,6 @@ h4{
 input#file{
   width: 75%;
 }
-
-
-
 
 /*boite de gauche*/
 
@@ -291,8 +285,15 @@ input#file{
   outline:0;
 }
 
-
 /*boite de droite*/
+
+.profil_title {
+  color: #978068d5;
+  font-size: xx-large;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Libre Baskerville', serif;
+}
 
 .book_statut{
   text-align:center;
@@ -318,7 +319,6 @@ input#file{
   outline:0;
 }
 
-
 /*-----------------------------------------------*/
 /*page communauté*/
 
@@ -326,9 +326,8 @@ input#file{
   display: inline-block;
   letter-spacing: 4px;
   text-align: center;
-  
-  
 }
+
 .reader_pseudo{
   margin-bottom: 5%;
   border: none;
@@ -342,7 +341,6 @@ input#file{
 .form_reader{
   margin-top: 10%;
   margin-left: 7%;
-  
 }
 
 .advanced_search_button{
@@ -373,13 +371,11 @@ input#file{
   outline:0;
 }
 
-
 .input_label, select{
   -webkit-appearance: none;
   -moz-appearance:none;
   appearance: none;
 }
-
 
 /* left bloc */
 .parent_users_pic{
@@ -388,8 +384,8 @@ input#file{
   height: 100px;
   margin: 5%;
   border: solid 1px black;
-
 }
+
 .users_pic{
   position: absolute;
   width: 100%;
@@ -421,8 +417,8 @@ input#file{
   display: inline-block;
   padding: 4px;
   padding-right:10px;
-  background-color: #9145203b;
-  border-left: 3px solid #482e1fad;
+  background-color: #DBBD80;
+  border-left: 3px solid #A39C67;
   font-size: small;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -430,26 +426,50 @@ input#file{
   margin-top: 2%;
 }
 
+.footer_logo {
+  margin-top: 15%;
+  max-width: 265px;
+  height: auto;
+  width: 90%;
+}
+
 .footer{
-  padding:0;
   padding-bottom:2%;
   padding-top: 2%;
   margin-top: 10%;
-  background-color: #442408c9;
+  background-color: #43311ab6;
+}
+
+.footer_title {
+  font-size:large;
+  letter-spacing:2px;
+  margin-top:10%;
+  color: #eddcb3;
+  padding-bottom: 5px;
+  text-align:center;
+}
+
+.footer_col {
+  padding:0;
+  border:1px solid rgba(82, 61, 31, 0.596);
+  border-top:none;
+  border-bottom:none;
 }
 
 .footer_text{
   letter-spacing:2px;
-  color:rgb(245, 253, 180);
+  padding-bottom: 5px;
+  color:#c5b694;
   text-align:center;
 }
 .footer_text:hover{
   text-decoration: none;
-  color:rgb(68, 41, 15);
+  color:#a18e67;
   outline:0;
 }
 
 .footer_li{
   list-style:none;
+  margin-bottom: 5px;
   text-align:center;
 }
