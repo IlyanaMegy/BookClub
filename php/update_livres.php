@@ -40,6 +40,6 @@ $query1->execute();
 
 // }
 
-//header('Location:http://localhost:8080/Bookclub/php/moderation_livres.php');
+//header('Location:http://localhost:80/Bookclub/php/moderation_livres.php');
 exit;
 ?>

@@ -27,7 +27,7 @@ $liste = $query1->fetchAll();
                 alt="BookClub logo" /></a>
 
         <button class="bouton_retour"
-            onclick="window.location.href = 'http://localhost:8080/Bookclub/php/home.php';">Retour</button>
+            onclick="window.location.href = 'http://localhost:80/Bookclub/php/home.php';">Retour</button>
 
         <h1 class="title_page2">Modération des utilisateurs</h1>
 

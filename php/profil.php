@@ -17,7 +17,18 @@
         $pays = $membres['pays'];
         $sexe = $membres['sex'];
         $age = $membres['age'];
-        $date =  utf8_encode(strftime('%d %B %Y',strtotime($membres['date_creation'])));
+
+        $dateObj = new DateTime($membres['date_creation']);
+        $formatter = new IntlDateFormatter(
+            'fr_FR',
+            IntlDateFormatter::LONG,
+            IntlDateFormatter::NONE,
+            'Europe/Paris',
+            IntlDateFormatter::GREGORIAN,
+            'd MMMM yyyy'
+        );
+        $date = $formatter->format($dateObj);
+
         $photo = $membres['photo'];
         $bio = $membres['bio'];
     }
@@ -31,7 +42,18 @@
         $pays = $membres['pays'];
         $sexe = $membres['sex'];
         $age= $membres['age'];
-        $date = utf8_encode(strftime('%d %B %Y',strtotime($membres['date_creation'])));
+
+        $dateObj = new DateTime($membres['date_creation']);
+        $formatter = new IntlDateFormatter(
+            'fr_FR',
+            IntlDateFormatter::LONG,
+            IntlDateFormatter::NONE,
+            'Europe/Paris',
+            IntlDateFormatter::GREGORIAN,
+            'd MMMM yyyy'
+        );
+        $date = $formatter->format($dateObj);
+
         $photo = $membres['photo'];
         $bio = $membres['bio'];
     }
@@ -133,15 +155,15 @@
                         </form>
 
                         <button class="bouton_style edit_profil" name="edit_profil" style="float:right;"
-                            onclick="window.location.href = 'http://localhost:8080/Bookclub/php/modification_membre.php';">Compte</button>
+                            onclick="window.location.href = 'http://localhost:80/Bookclub/php/modification_membre.php';">Compte</button>
                     </div>
                 </div>
 
                 <!-- bloc droit stats -->
                 <div class="col-md-9 col-lg-9 col-xl-9">
-                    <div class="col-md-12" style="background-color:rgba(149, 91, 49, 0.06);padding:30px;">
+                    <div class="col-md-12" style="padding:30px;">
 
-                        <h1 style="padding:50px;padding-bottom:0;">Ta bibliothèque</h1>
+                        <h1 class="profil_title" style="padding:50px;padding-bottom:0;">La bibliothèque</h1>
                         <div class="books_div" style="margin-top:10%;">
                             <h2 style="text-align:left;">Vos livres enregistrés</h2>
                             <div class="progress" style="margin-left:15px;margin-right:15px;height:30px">

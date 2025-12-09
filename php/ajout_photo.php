@@ -34,7 +34,7 @@ if (isset($_FILES['file']))
         $_SESSION['fichier'] = TRUE;
     }
 
-    header('Location: http://localhost:8080/Bookclub/php/profil.php');
+    header('Location: http://localhost:80/Bookclub/php/profil.php');
     exit;
 
 }

@@ -14,6 +14,6 @@ $query1->bindParam(":id_membre", $id_membre);
 $query1->bindParam(":id_livre", $id_livre);
 $query1->bindParam(":statut", $statut);
 $query1->execute();
-header('Location:http://localhost:8080/BookClub/php/profil.php');
+header('Location:http://localhost:80/BookClub/php/profil.php');
 exit;
 ?>

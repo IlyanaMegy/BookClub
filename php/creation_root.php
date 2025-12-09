@@ -105,7 +105,7 @@ alert("<?php echo htmlspecialchars('ce pseudo est indisponible', ENT_QUOTES); ?>
         $query1->bindParam(":role", $role);
         $query1->bindParam(":date_creation", $date_creation);
         $query1->execute();
-        header('Location: http://localhost:8080/Bookclub/php/index.php');
+        header('Location: http://localhost:80/Bookclub/php/index.php');
         exit;
     }
 }

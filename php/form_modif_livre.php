@@ -44,7 +44,7 @@
                 alt="BookClub logo" /></a>
 
         <button class="bouton_retour"
-            onclick="window.location.href = 'http://localhost:8080/Bookclub/php/moderation_livres.php';">Retour</button>
+            onclick="window.location.href = 'http://localhost:80/Bookclub/php/moderation_livres.php';">Retour</button>
 
         <h1 style="margin-left:23%" class="title_page2">Modifier un livre</h1>
 

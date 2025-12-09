@@ -43,6 +43,6 @@ foreach ($liste_membre as $membre) {
 
 }
 $_SESSION['pseudo'] = $pseudo;
-header('Location:http://localhost:8080/Bookclub/php/profil.php');
+header('Location:http://localhost:80/Bookclub/php/profil.php');
 exit;
 ?>

@@ -11,7 +11,7 @@ $sql = "DELETE FROM bookclub.membres WHERE pseudo_membre = \"$pseudo_membre\"";
 $query1 = $pdo->prepare($sql);
 $query1->execute();
 
-header('Location: http://localhost:8080/Bookclub/php/moderation_membres.php');
+header('Location: http://localhost:80/Bookclub/php/moderation_membres.php');
 exit;
 
 ?>

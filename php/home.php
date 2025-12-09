@@ -19,7 +19,7 @@ $newest_books6 = $query6newest->fetchAll();
 
 
 //list books author of the day
-$auteurdujour = "J.K. Rowling";
+$auteurdujour = "Carol Bells";
 $query4author = $pdo->prepare('SELECT * FROM livres WHERE auteur="J.K. Rowling" LIMIT 4');
 $query4author->execute();
 $authoroftheday4 = $query4author->fetchAll();
@@ -80,21 +80,35 @@ $randombooks6 = $queryrandom6->fetchAll();
     text-decoration: none;
     padding: 10px;
 }
+
+.navbar_style {
+    background-color: #43311ab6;
+    padding: 15px;
+}
+
+.nav-item {
+    margin: 10px;
+    color: #eddcb3; 
+}
+
+.logo {
+    width: 160px;
+    height: 45px;
+}
 </style>
 
 <body>
     <!-- la barre de navigation responsive avec Bootstrap -->
     <div class="fullscreen_bg">
-
-        <nav class="navbar fixed_top navbar-expand-sm justify-content-between">
-            <!-- Logo en haut à gauche -->
-            <div class="col-xs-1xs col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                <a href="index.php"><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
+        <nav class="navbar fixed_top navbar-expand-sm justify-content-between navbar_style">
+            <!-- Logo en haut à gauche -->            
+            <div class="col-xs-2 col-sm-2 col-md-3 col-lg-3 col-xl-3">
+                <div class="col-xs-1xs col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                    <a href="index.php"><img class='logo' src="../srcs/icons/logo_light_big.png" alt="BookClub logo" /></a>
+                </div>
             </div>
 
-            <div class="col-xs-0 col-sm-0 col-md-0 col-lg-1 col-xl-1"></div>
-
-            <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 navbar-collapse" id="navbar_div">
+            <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-8 navbar-collapse" id="navbar_div">
                 <!-- liens, celui de la page actuelle est désactivé -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -145,27 +159,28 @@ $randombooks6 = $queryrandom6->fetchAll();
                         }
                      }else{
                   ?>
-                    <li class="nav-item">
-                        <a class="nav-link link_enable" style="border:rgb(253, 236, 180) 1px solid;"
+                    <li class="nav-item link_account">
+                        <a class="nav-link link_enable"
                             href="index.php">Identifiez-vous !</a>
                     </li>
                     <?php } ?>
                 </ul>
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md-3 col-lg-3 col-xl-1">
             </div>
         </nav>
 
         <!-- Message de bienvenue -->
         <div class="container message_box">
             <p class="welcome">Bienvenue sur BookClub</p>
-            <p class="text">Répertoriez vos livres préférés
-                <br>Et partagez votre avis
-            </p>
+            <p class="text">Répertoriez vos livres préférés<br>Et partagez votre avis</p>
         </div>
     </div>
 
     <!-- le container de la page avec tous les éléments de la page -->
     <div class="container content_box_home">
-        <div name="title" style="padding-top:20px;">
+        <div name="title" style="padding-top:5px;">
             <hr>
             <h1>Nos livres séléctionnés rien que pour vous</h1>
             <hr>

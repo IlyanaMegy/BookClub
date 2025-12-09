@@ -24,6 +24,6 @@ $query1->bindParam(":note", $note);
 $query1->bindParam(":photo", $photo);
 $query1->bindParam(":date_ajout", $date_ajout);
 $query1->execute();
-header('Location:http://localhost:8080/BookClub/php/home.php');
+header('Location:http://localhost:80/BookClub/php/home.php');
 exit;
 ?>

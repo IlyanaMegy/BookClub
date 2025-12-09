@@ -2,10 +2,10 @@
     <nav class="navbar fixed_top navbar-expand-sm justify-content-between navbar_style">
         <!-- Logo en haut à gauche -->
         <div class="col-xs-1xs col-sm-1 col-md-1 col-lg-1 col-xl-1">
-            <a href="index.php"><img class='logo' src="../logo/logo_lighter.png" alt="BookClub logo" /></a>
+            <a href="index.php"><img class='logo' src="../srcs/icons/logo.png" alt="BookClub logo" /></a>
         </div>
 
-        <div class="col-xs-0 col-sm-0 col-md-0 col-lg-1 col-xl-1"></div>
+        <div class="col-xs-0 col-sm-0 col-md-0 col-lg-3 col-xl-3"></div>
 
         <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 navbar-collapse" id="navbar_div">
             <!-- liens, celui de la page actuelle est désactivé -->
@@ -60,7 +60,7 @@ if (isset($_SESSION['IS_CONNECTED'])) {
 else {
 ?>
                 <li class="nav-item">
-                    <a class="nav-link link_enable" style="border:rgb(253, 236, 180) 1px solid;"
+                    <a class="nav-link link_enable" style="border:rgb(253, 236, 180) 1px solid; margin-left: 20%;"
                         href="index.php">Identifiez-vous !</a>
                 </li>
                 <?php

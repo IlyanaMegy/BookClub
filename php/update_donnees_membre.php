@@ -25,7 +25,7 @@ $query1->bindParam(":date_creation", $date_creation);
 $query1->execute();
 
 echo $pseudo;
-header('Location: http://localhost:8080/Bookclub/php/suppression_membre2.php/?pseudo=' . $pseudo);
+header('Location: http://localhost:80/Bookclub/php/suppression_membre2.php/?pseudo=' . $pseudo);
 exit;
 
 ?>
